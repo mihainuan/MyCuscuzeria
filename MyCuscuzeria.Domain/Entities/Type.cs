@@ -1,11 +1,16 @@
-﻿namespace Cuscuzeria.Domain.Entities
+﻿using MyCuscuzeria.Domain.Entities.Base;
+
+namespace Cuscuzeria.Domain.Entities
 {
-    public class Type
-    {
+    public class Type : EntityBase
+
+
+    {   //PK
         public int TypeId { get; set; }
+
         public string TypeName { get; set; }
         public string Description { get; set; }
 
-        //public virtual Cuscuz Cuscuz { get; set; }
+        public virtual Cuscuz Cuscuz { get; set; }
     }
 }
