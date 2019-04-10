@@ -1,8 +1,14 @@
-﻿using Cuscuzeria.Domain.Entities;
+﻿using MyCuscuzeria.Domain.Arguments.Cuscuz;
 
-namespace Cuscuzeria.Domain.Services
+namespace MyCuscuzeria.Domain.Services
 {
-    public interface ICuscuzService : IServiceBase<Cuscuz>
+    public interface ICuscuzService
     {
+        /// <summary>
+        /// Add Cuscuz
+        /// </summary>
+        /// <param name="cuscuz"></param>
+        /// <returns></returns>
+        AddCuscuzResponse AddCuscuz(AddCuscuzRequest cuscuz);
     }
 }

@@ -1,15 +1,11 @@
-﻿using Cuscuzeria.Domain.Entities;
-using System.Collections.Generic;
+﻿using MyCuscuzeria.Domain.Entities;
 
-namespace Cuscuzeria.Domain.Interfaces.Repositories
+namespace MyCuscuzeria.Domain.Intefaces.Repositories
 {
-    public interface IBeverageRepository : IRepositoryBase<Beverage>
+    public interface IBeverageRepository
     {
-        /// <summary>
-        /// Search by BeverageName
-        /// </summary>
-        /// <param name="beveragename"></param>
-        /// <returns></returns>
-        IEnumerable<Beverage> FindByBeverageName(string beveragename);
+        Beverage GetBeverage(int beverageid);
+
+        void SaveBeverage(Beverage beverage);
     }
 }

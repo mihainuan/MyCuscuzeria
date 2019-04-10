@@ -1,15 +1,11 @@
-﻿using Cuscuzeria.Domain.Entities;
-using System.Collections.Generic;
+﻿using MyCuscuzeria.Domain.Entities;
 
-namespace Cuscuzeria.Domain.Interfaces.Repositories
+namespace MyCuscuzeria.Domain.Intefaces.Repositories
 {
-    public interface ITypeRepository : IRepositoryBase<Type>
+    public interface ITypeRepository
     {
-        /// <summary>
-        /// Search by TypeName
-        /// </summary>
-        /// <param name="typename"></param>
-        /// <returns></returns>
-        IEnumerable<Type> FindByTypeName(string typename);
+        Type GetType(int typeid);
+
+        void SaveType(Type type);
     }
 }

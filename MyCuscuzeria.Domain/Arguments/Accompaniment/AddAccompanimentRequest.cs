@@ -1,16 +1,13 @@
-﻿using MyCuscuzeria.Domain.Entities.Base;
-
-namespace MyCuscuzeria.Domain.Entities
+﻿namespace MyCuscuzeria.Domain.Arguments.Accompaniment
 {
-    public class Accompaniment : EntityBase
+    public class AddAccompanimentRequest
     {
-        //PK
         public int AccompanimentId { get; set; }
 
         public string AccompanimentName { get; set; }
         public string Description { get; set; }
 
         //public int CuscuzId { get; set; }
-        public virtual Cuscuz Cuscuz { get; set; }
+        public virtual Entities.Cuscuz Cuscuz { get; set; }
     }
 }

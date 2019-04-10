@@ -1,8 +1,15 @@
-﻿using Cuscuzeria.Domain.Entities;
+﻿using MyCuscuzeria.Domain.Entities;
 
-namespace Cuscuzeria.Domain.Interfaces.Repositories
+namespace MyCuscuzeria.Domain.Intefaces.Repositories
 {
-    public interface IUserRepository : IRepositoryBase<User>
+    public interface IUserRepository
     {
+        User GetUser(int userid);
+
+        User AuthUser(string email, string senha);
+
+        void SaveUser(User user);
+
+        bool Exists(string email);
     }
 }

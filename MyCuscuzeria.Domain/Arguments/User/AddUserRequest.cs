@@ -1,12 +1,10 @@
-﻿using MyCuscuzeria.Domain.Entities.Base;
-using MyCuscuzeria.Domain.ValueObjects;
+﻿using MyCuscuzeria.Domain.ValueObjects;
 using System;
 
-namespace MyCuscuzeria.Domain.Entities
+namespace MyCuscuzeria.Domain.Arguments.User
 {
-    public class User : EntityBase
+    public class AddUserRequest
     {
-        //PK
         public int UserId { get; set; }
 
         public string Username { get; set; }
@@ -18,6 +16,6 @@ namespace MyCuscuzeria.Domain.Entities
         public DateTime? LastOrder { get; set; }
         public string UrlImg { get; set; }
 
-        public virtual Order Order { get; set; }
+        public virtual Entities.Order Order { get; set; }
     }
 }

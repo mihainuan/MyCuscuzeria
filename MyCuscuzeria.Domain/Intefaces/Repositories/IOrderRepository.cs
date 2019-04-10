@@ -1,8 +1,11 @@
-﻿using Cuscuzeria.Domain.Entities;
+﻿using MyCuscuzeria.Domain.Entities;
 
-namespace Cuscuzeria.Domain.Interfaces.Repositories
+namespace MyCuscuzeria.Domain.Intefaces.Repositories
 {
-    public interface IOrderRepository : IRepositoryBase<Order>
+    public interface IOrderRepository
     {
+        Order GetOrder(int orderid);
+
+        void SaveOrder(Order order);
     }
 }

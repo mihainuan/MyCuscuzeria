@@ -1,8 +1,14 @@
-﻿using Cuscuzeria.Domain.Entities;
+﻿using MyCuscuzeria.Domain.Arguments.Type;
 
-namespace Cuscuzeria.Domain.Services
+namespace MyCuscuzeria.Domain.Services
 {
-    public interface ITypeService : IServiceBase<Type>
+    public interface ITypeService
     {
+        /// <summary>
+        /// Add/Save Type
+        /// </summary>
+        /// <param name="type"></param>
+        /// <returns></returns>
+        AddTypeResponse AddType(AddTypeRequest type);
     }
 }

@@ -1,8 +1,14 @@
-﻿using Cuscuzeria.Domain.Entities;
+﻿using MyCuscuzeria.Domain.Arguments.Order;
 
-namespace Cuscuzeria.Domain.Services
+namespace MyCuscuzeria.Domain.Services
 {
-    public interface IOrderService : IServiceBase<Order>
+    public interface IOrderService
     {
+        /// <summary>
+        /// Add Order
+        /// </summary>
+        /// <param name="order"></param>
+        /// <returns></returns>
+        AddOrderResponse AddOrder(AddOrderRequest order);
     }
 }

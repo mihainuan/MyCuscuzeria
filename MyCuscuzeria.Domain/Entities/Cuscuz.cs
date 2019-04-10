@@ -1,7 +1,7 @@
 ﻿using MyCuscuzeria.Domain.Entities.Base;
 using System.Collections.Generic;
 
-namespace Cuscuzeria.Domain.Entities
+namespace MyCuscuzeria.Domain.Entities
 {
     public class Cuscuz : EntityBase
     {

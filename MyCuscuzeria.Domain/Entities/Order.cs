@@ -1,9 +1,9 @@
-﻿using Cuscuzeria.Domain.Enums;
-using MyCuscuzeria.Domain.Entities.Base;
+﻿using MyCuscuzeria.Domain.Entities.Base;
+using MyCuscuzeria.Domain.Enums;
 using System;
 using System.Collections.Generic;
 
-namespace Cuscuzeria.Domain.Entities
+namespace MyCuscuzeria.Domain.Entities
 {
     public class Order : EntityBase
     {
@@ -40,9 +40,5 @@ namespace Cuscuzeria.Domain.Entities
             Drinks = new List<Drink>();
             Promo = new List<Promo>();
         }
-
-
-
-
     }
 }

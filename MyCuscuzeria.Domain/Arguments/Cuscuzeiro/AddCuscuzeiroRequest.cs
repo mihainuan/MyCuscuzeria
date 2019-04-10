@@ -1,11 +1,9 @@
-﻿using MyCuscuzeria.Domain.Entities.Base;
-using System;
+﻿using System;
 
-namespace MyCuscuzeria.Domain.Entities
+namespace MyCuscuzeria.Domain.Arguments.Cuscuzeiro
 {
-    public class Cuscuzeiro : EntityBase
+    public class AddCuscuzeiroRequest
     {
-        //PK
         public int CuscuzeiroId { get; set; }
 
         public string CuscuzeiroName { get; set; }
@@ -14,6 +12,6 @@ namespace MyCuscuzeria.Domain.Entities
         public string UrlImg { get; set; }
 
         //public int OrderId { get; set; }
-        public virtual Order Order { get; set; }
+        public virtual Entities.Order Order { get; set; }
     }
 }

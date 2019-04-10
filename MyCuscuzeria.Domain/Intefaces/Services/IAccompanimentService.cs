@@ -1,8 +1,14 @@
-﻿using Cuscuzeria.Domain.Entities;
+﻿using MyCuscuzeria.Domain.Arguments.Accompaniment;
 
-namespace Cuscuzeria.Domain.Services
+namespace MyCuscuzeria.Domain.Services
 {
-    public interface IAccompanimentService : IServiceBase<Accompaniment>
+    public interface IAccompanimentService
     {
+        /// <summary>
+        /// Add Accompaniment
+        /// </summary>
+        /// <param name="accompaniment"></param>
+        /// <returns></returns>
+        AddAccompanimentResponse AddAccompaniment(AddAccompanimentRequest accompaniment);
     }
 }

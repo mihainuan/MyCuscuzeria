@@ -1,4 +1,4 @@
-﻿namespace Cuscuzeria.Domain.Enums
+﻿namespace MyCuscuzeria.Domain.Enums
 {
     public enum StatusEnum
     {

@@ -1,15 +1,11 @@
-﻿using Cuscuzeria.Domain.Entities;
-using System.Collections.Generic;
+﻿using MyCuscuzeria.Domain.Entities;
 
-namespace Cuscuzeria.Domain.Interfaces.Repositories
+namespace MyCuscuzeria.Domain.Intefaces.Repositories
 {
-    public interface ICuscuzRepository : IRepositoryBase<Cuscuz>
+    public interface ICuscuzRepository
     {
-        /// <summary>
-        /// Search by CuscuzeiroName
-        /// </summary>
-        /// <param name="cuscuzname"></param>
-        /// <returns></returns>
-        IEnumerable<Cuscuz> FindByCuscuzName(string cuscuzname);
+        Cuscuz GetCuscuz(int cuscuzid);
+
+        void SaveCuscuz(Cuscuz cuscuz);
     }
 }

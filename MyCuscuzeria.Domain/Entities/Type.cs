@@ -1,6 +1,6 @@
 ﻿using MyCuscuzeria.Domain.Entities.Base;
 
-namespace Cuscuzeria.Domain.Entities
+namespace MyCuscuzeria.Domain.Entities
 {
     public class Type : EntityBase
 

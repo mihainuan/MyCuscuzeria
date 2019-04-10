@@ -1,11 +1,9 @@
-﻿using MyCuscuzeria.Domain.Entities.Base;
-using System;
+﻿using System;
 
-namespace MyCuscuzeria.Domain.Entities
+namespace MyCuscuzeria.Domain.Arguments.Promo
 {
-    public class Promo : EntityBase
+    public class AddPromoRequest
     {
-        //PK
         public int PromoId { get; set; }
 
         public string PromoTitle { get; set; }
@@ -15,6 +13,6 @@ namespace MyCuscuzeria.Domain.Entities
         public bool Active { get; set; }
 
         //public int OrderId { get; set; }
-        public virtual Order Order { get; set; }
+        public virtual Entities.Order Order { get; set; }
     }
 }

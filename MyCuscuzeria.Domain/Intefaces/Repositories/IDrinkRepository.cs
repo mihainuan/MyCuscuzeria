@@ -1,14 +1,9 @@
-﻿using System.Collections.Generic;
-
-namespace Cuscuzeria.Domain.Interfaces.Repositories
+﻿namespace MyCuscuzeria.Domain.Intefaces.Repositories
 {
-    public interface IDrinkRepository : IRepositoryBase<Drink>
+    public interface IDrinkRepository
     {
-        /// <summary>
-        /// Search by DrinkName
-        /// </summary>
-        /// <param name="drinkname"></param>
-        /// <returns></returns>
-        IEnumerable<Drink> FindByDrinkName(string drinkname);
+        Drink GetDrink(int drinkid);
+
+        void SaveDrink(Drink drink);
     }
 }

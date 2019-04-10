@@ -1,6 +1,14 @@
-﻿namespace Cuscuzeria.Domain.Services
+﻿using MyCuscuzeria.Domain.Arguments.Drink;
+
+namespace MyCuscuzeria.Domain.Services
 {
-    public interface IDrinkService : IServiceBase<Drink>
+    public interface IDrinkService
     {
+        /// <summary>
+        /// Add Drink
+        /// </summary>
+        /// <param name="drink"></param>
+        /// <returns></returns>
+        AddDrinkResponse AddDrink(AddDrinkRequest drink);
     }
 }

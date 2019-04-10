@@ -1,15 +1,11 @@
-﻿using Cuscuzeria.Domain.Entities;
-using System.Collections.Generic;
+﻿using MyCuscuzeria.Domain.Entities;
 
-namespace Cuscuzeria.Domain.Interfaces.Repositories
+namespace MyCuscuzeria.Domain.Intefaces.Repositories
 {
-    public interface IAccompanimentRepository : IRepositoryBase<Accompaniment>
+    public interface IAccompanimentRepository
     {
-        /// <summary>
-        /// Search by AccompanimentName
-        /// </summary>
-        /// <param name="accompanimentname"></param>
-        /// <returns></returns>
-        IEnumerable<Accompaniment> FindByAccompanimentName(string accompanimentname);
+        Accompaniment GetAccompaniment(int accompanimentid);
+
+        void SaveAccompaniment(Accompaniment accompaniment);
     }
 }

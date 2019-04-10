@@ -1,15 +1,11 @@
-﻿using Cuscuzeria.Domain.Entities;
-using System.Collections.Generic;
+﻿using MyCuscuzeria.Domain.Entities;
 
-namespace Cuscuzeria.Domain.Interfaces.Repositories
+namespace MyCuscuzeria.Domain.Intefaces.Repositories
 {
-    public interface IPromoRepository : IRepositoryBase<Promo>
+    public interface IPromoRepository
     {
-        /// <summary>
-        /// Search by PromoName
-        /// </summary>
-        /// <param name="promoname"></param>
-        /// <returns></returns>
-        IEnumerable<Promo> FindByPromoName(string promoname);
+        Promo GetPromo(int promoid);
+
+        void SavePromo(Promo promo);
     }
 }

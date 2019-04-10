@@ -1,8 +1,14 @@
-﻿using Cuscuzeria.Domain.Entities;
+﻿using MyCuscuzeria.Domain.Arguments.Beverage;
 
-namespace Cuscuzeria.Domain.Services
+namespace MyCuscuzeria.Domain.Services
 {
-    public interface IBeverageService : IServiceBase<Beverage>
+    public interface IBeverageService
     {
+        /// <summary>
+        /// Add Beverage
+        /// </summary>
+        /// <param name="beverage"></param>
+        /// <returns></returns>
+        AddBeverageResponse AddBeverage(AddBeverageRequest beverage);
     }
 }

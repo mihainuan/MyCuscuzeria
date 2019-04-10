@@ -1,16 +1,13 @@
-﻿using MyCuscuzeria.Domain.Entities.Base;
-
-namespace MyCuscuzeria.Domain.Entities
+﻿namespace MyCuscuzeria.Domain.Arguments.Drink
 {
-    public class Drink : EntityBase
+    public class AddDrinkRequest
     {
-        //PK
         public int DrinkId { get; set; }
 
         public string DrinkName { get; set; }
         public string Description { get; set; }
 
         //public int OrderId { get; set; }
-        public virtual Order Order { get; set; }
+        public virtual Entities.Order Order { get; set; }
     }
 }
