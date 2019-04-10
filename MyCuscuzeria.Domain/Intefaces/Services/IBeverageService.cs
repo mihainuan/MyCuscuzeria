@@ -7,8 +7,8 @@ namespace MyCuscuzeria.Domain.Services
         /// <summary>
         /// Add Beverage
         /// </summary>
-        /// <param name="beverage"></param>
+        /// <param name="request"></param>
         /// <returns></returns>
-        AddBeverageResponse AddBeverage(AddBeverageRequest beverage);
+        AddBeverageResponse AddBeverage(AddBeverageRequest request);
     }
 }

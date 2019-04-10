@@ -7,8 +7,8 @@ namespace MyCuscuzeria.Domain.Services
         /// <summary>
         /// Add Cuscuz
         /// </summary>
-        /// <param name="cuscuz"></param>
+        /// <param name="request"></param>
         /// <returns></returns>
-        AddCuscuzResponse AddCuscuz(AddCuscuzRequest cuscuz);
+        AddCuscuzResponse AddCuscuz(AddCuscuzRequest request);
     }
 }

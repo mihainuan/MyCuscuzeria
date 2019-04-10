@@ -7,8 +7,8 @@ namespace MyCuscuzeria.Domain.Services
         /// <summary>
         /// Add Promo
         /// </summary>
-        /// <param name="promo"></param>
+        /// <param name="request"></param>
         /// <returns></returns>
-        AddPromoResponse AddPromo(AddPromoRequest promo);
+        AddPromoResponse AddPromo(AddPromoRequest request);
     }
 }

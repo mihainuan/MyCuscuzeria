@@ -7,8 +7,8 @@ namespace MyCuscuzeria.Domain.Services
         /// <summary>
         /// Add Order
         /// </summary>
-        /// <param name="order"></param>
+        /// <param name="request"></param>
         /// <returns></returns>
-        AddOrderResponse AddOrder(AddOrderRequest order);
+        AddOrderResponse AddOrder(AddOrderRequest request);
     }
 }

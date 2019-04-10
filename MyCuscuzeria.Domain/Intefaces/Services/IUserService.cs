@@ -7,9 +7,9 @@ namespace MyCuscuzeria.Domain.Services
         /// <summary>
         /// Add/Save User
         /// </summary>
-        /// <param name="user"></param>
+        /// <param name="request"></param>
         /// <returns></returns>
-        AddUserResponse AddUser(AddUserRequest user);
+        AddUserResponse AddUser(AddUserRequest request);
 
         /// <summary>
         /// Authenticates User

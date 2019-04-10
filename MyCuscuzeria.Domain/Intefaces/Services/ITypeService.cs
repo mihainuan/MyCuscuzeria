@@ -7,8 +7,8 @@ namespace MyCuscuzeria.Domain.Services
         /// <summary>
         /// Add/Save Type
         /// </summary>
-        /// <param name="type"></param>
+        /// <param name="request"></param>
         /// <returns></returns>
-        AddTypeResponse AddType(AddTypeRequest type);
+        AddTypeResponse AddType(AddTypeRequest request);
     }
 }

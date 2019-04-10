@@ -7,8 +7,8 @@ namespace MyCuscuzeria.Domain.Services
         /// <summary>
         /// Add Accompaniment
         /// </summary>
-        /// <param name="accompaniment"></param>
+        /// <param name="request"></param>
         /// <returns></returns>
-        AddAccompanimentResponse AddAccompaniment(AddAccompanimentRequest accompaniment);
+        AddAccompanimentResponse AddAccompaniment(AddAccompanimentRequest request);
     }
 }
