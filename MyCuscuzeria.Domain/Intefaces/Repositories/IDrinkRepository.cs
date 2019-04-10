@@ -1,4 +1,6 @@
-﻿namespace MyCuscuzeria.Domain.Intefaces.Repositories
+﻿using MyCuscuzeria.Domain.Entities;
+
+namespace MyCuscuzeria.Domain.Intefaces.Repositories
 {
     public interface IDrinkRepository
     {
