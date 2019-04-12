@@ -1,15 +1,23 @@
 ﻿using MyCuscuzeria.Domain.Arguments.User;
 using MyCuscuzeria.Domain.Entities;
+using MyCuscuzeria.Domain.Intefaces.Repositories;
 using MyCuscuzeria.Domain.Resources;
-using MyCuscuzeria.Domain.ValueObjects;
 using prmToolkit.NotificationPattern;
 using prmToolkit.NotificationPattern.Extensions;
-using System;
 
 namespace MyCuscuzeria.Domain.Services
 {
     public class UserService : Notifiable, IUserService
     {
+        //Service Dependencies
+        private readonly IUserRepository _userRepository;
+
+        //Constructor
+        public UserService(IUserRepository userRepository)
+        {
+            _userRepository = userRepository;
+        }
+
         public AddUserResponse AddUser(AddUserRequest request)
         {
             if (request == null)
@@ -18,41 +26,64 @@ namespace MyCuscuzeria.Domain.Services
                 return null;
             }
 
-            //User to create
-            FullName fullname = new FullName(request.Fullname.FirstName, request.Fullname.LastName);
+            User user = new User(
+                request.UserId,
+                request.Username,
+                request.Fullname,
+                request.Password,
+                request.Email,
+                request.Phone,
+                request.CreatedAt,
+                request.LastOrder,
+                request.UrlImg,
+                request.Order
+                );
 
-            fullname.FirstName = "Mihai";
-            fullname.LastName = "Silva";
-
-            User user = new User();
-
-            user.Fullname = fullname;
-            user.Email = request.Email;
-            user.Password = request.Password;
-            user.CreatedAt = DateTime.Now;
-            user.LastOrder = DateTime.Now.AddMonths(-7);
-            user.Phone = request.Phone;
-            user.Username = request.Username;
-            user.GuId = Guid.NewGuid();
-
-            AddNotifications(fullname, user);
-
-            //Persists on DB
-            //AddUserResponse response = new UserRepository().SaveUser(user);
-            //return response;
+            AddNotifications(user);
 
             if (this.IsInvalid() == true)
             {
                 return null;
             }
 
-            //TODO: Continue Notification Pattern Class (20:19)
-            return new AddUserResponse(int.MaxValue, Guid.NewGuid());
+            //Persists on DB
+            _userRepository.SaveUser(user);
+            return new AddUserResponse(user.UserId, user.GuId);
         }
 
         public AuthUserResponse AuthUser(AuthUserRequest request)
         {
-            throw new System.NotImplementedException();
+            if (request == null)
+            {
+                AddNotification("AuthUserRequest", MSG.OBJETO_X0_E_OBRIGATORIO.ToFormat("AuthUserRequest"));
+                return null;
+            }
+
+            var user = new User(request.Email, request.Password);
+
+            AddNotifications(user);
+
+            if (this.IsInvalid() == true)
+            {
+                return null;
+            }
+
+            //Auths on DB
+            user = _userRepository.AuthUser(user.Email, user.Password);
+
+            if (user == null)
+            {
+                AddNotification("User", MSG.DADOS_NAO_ENCONTRADOS);
+                return null;
+            }
+
+            var response = new AuthUserResponse()
+            {
+                UserId = user.UserId,
+                FirstName = user.Fullname.FirstName
+            };
+
+            return response;
         }
     }
 }
