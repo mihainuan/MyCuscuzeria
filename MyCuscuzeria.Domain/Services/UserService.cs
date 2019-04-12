@@ -77,11 +77,8 @@ namespace MyCuscuzeria.Domain.Services
                 return null;
             }
 
-            var response = new AuthUserResponse()
-            {
-                UserId = user.UserId,
-                FirstName = user.Fullname.FirstName
-            };
+            //Explicit conversion
+            var response = (AuthUserResponse)user;
 
             return response;
         }

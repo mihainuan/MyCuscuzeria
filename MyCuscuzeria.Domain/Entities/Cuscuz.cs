@@ -11,9 +11,9 @@ namespace MyCuscuzeria.Domain.Entities
         public string CuscuzName { get; set; }
         public string Description { get; set; }
 
-        //public int OrderId { get; set; }
-        //public int TypeId { get; set; }
-        //public int AccompanimentId { get; set; }
+        public int OrderId { get; set; }
+        public int TypeId { get; set; }
+        public int AccompanimentId { get; set; }
 
         //FK (one-to-one)
         public virtual Order Order { get; set; }

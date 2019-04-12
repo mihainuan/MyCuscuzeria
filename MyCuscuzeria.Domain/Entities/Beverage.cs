@@ -10,7 +10,7 @@ namespace MyCuscuzeria.Domain.Entities
         public string BeverageName { get; set; }
         public string Description { get; set; }
 
-        //public int OrderId { get; set; }
+        public int OrderId { get; set; }
         public virtual Order Order { get; set; }
     }
 }

@@ -13,7 +13,7 @@ namespace MyCuscuzeria.Domain.Entities
         public DateTime? StartDate { get; set; }
         public string UrlImg { get; set; }
 
-        //public int OrderId { get; set; }
+        public int OrderId { get; set; }
         public virtual Order Order { get; set; }
     }
 }

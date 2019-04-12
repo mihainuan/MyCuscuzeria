@@ -19,6 +19,7 @@ namespace MyCuscuzeriaConsole
                 Username = "test_user",
                 Password = "p@ssw0rd".ConvertToMD5()
             };
+
             //TODO: Corrigir Later
             //var response = new UserService().AddUser(request);
 

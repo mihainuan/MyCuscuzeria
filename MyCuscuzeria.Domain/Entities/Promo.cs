@@ -14,7 +14,7 @@ namespace MyCuscuzeria.Domain.Entities
         public DateTime? EndsAt { get; set; }
         public bool Active { get; set; }
 
-        //public int OrderId { get; set; }
+        public int OrderId { get; set; }
         public virtual Order Order { get; set; }
     }
 }
