@@ -1,7 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using MyCuscuzeria.Domain.Entities;
+using MyCuscuzeria.Domain.ValueObjects;
 using MyCuscuzeria.Infrastructure.Persistence.EF.Config;
 using MyCuscuzeria.Shared;
+using prmToolkit.NotificationPattern;
 
 namespace MyCuscuzeria.Infrastructure.Persistence.EF
 {
@@ -21,7 +23,6 @@ namespace MyCuscuzeria.Infrastructure.Persistence.EF
 
         public MyCuscuzeriaContext()
         {
-
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -35,26 +36,36 @@ namespace MyCuscuzeria.Infrastructure.Persistence.EF
         //Mapping by Configuration (EF6)
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            ////Configuration of 'accompaniments'
-            //modelBuilder.ApplyConfiguration(new AccompanimentConfiguration());
+            #region Ignores
 
-            ////Configuration of 'beverages'
-            //modelBuilder.ApplyConfiguration(new BeverageConfiguration());
+            modelBuilder.Ignore<Notification>();
+            modelBuilder.Ignore<FullName>();
 
-            ////Configuration of 'cuscuz'
-            //modelBuilder.ApplyConfiguration(new CuscuzConfiguration());
+            #endregion
 
-            ////Configuration of 'cuscuzeiros'
-            //modelBuilder.ApplyConfiguration(new CuscuzeiroConfiguration());
 
-            ////Configuration of 'drinks'
-            //modelBuilder.ApplyConfiguration(new DrinkConfiguration());
+            #region Configs
 
-            ////Configuration of 'orders'
-            //modelBuilder.ApplyConfiguration(new OrderConfiguration());
+            //Configuration of 'accompaniments'
+            modelBuilder.ApplyConfiguration(new AccompanimentConfiguration());
 
-            ////Configuration of 'promos'
-            //modelBuilder.ApplyConfiguration(new PromoConfiguration());
+            //Configuration of 'beverages'
+            modelBuilder.ApplyConfiguration(new BeverageConfiguration());
+
+            //Configuration of 'cuscuz'
+            modelBuilder.ApplyConfiguration(new CuscuzConfiguration());
+
+            //Configuration of 'cuscuzeiros'
+            modelBuilder.ApplyConfiguration(new CuscuzeiroConfiguration());
+
+            //Configuration of 'drinks'
+            modelBuilder.ApplyConfiguration(new DrinkConfiguration());
+
+            //Configuration of 'orders'
+            modelBuilder.ApplyConfiguration(new OrderConfiguration());
+
+            //Configuration of 'promos'
+            modelBuilder.ApplyConfiguration(new PromoConfiguration());
 
             //Configuration of 'types'
             modelBuilder.ApplyConfiguration(new TypeConfiguration());
@@ -64,6 +75,9 @@ namespace MyCuscuzeria.Infrastructure.Persistence.EF
 
             //Apply configurations
             base.OnModelCreating(modelBuilder);
+
+            #endregion
+
         }
 
     }
