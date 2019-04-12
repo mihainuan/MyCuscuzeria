@@ -1,8 +1,9 @@
-﻿using System;
+﻿using prmToolkit.NotificationPattern;
+using System;
 
 namespace MyCuscuzeria.Domain.Entities.Base
 {
-    public abstract class EntityBase
+    public abstract class EntityBase : Notifiable
     {
         public EntityBase()
         {

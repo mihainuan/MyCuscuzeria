@@ -19,5 +19,7 @@ namespace MyCuscuzeria.Domain.Entities
         public string UrlImg { get; set; }
 
         public virtual Order Order { get; set; }
+
+
     }
 }

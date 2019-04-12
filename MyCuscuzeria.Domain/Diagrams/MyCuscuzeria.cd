@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="Cuscuzeria.Domain.Entities.Accompaniment">
+  <Class Name="MyCuscuzeria.Domain.Entities.Accompaniment">
     <Position X="0.75" Y="0.5" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAgAAAAAAAAAAAAAAABAAAAAAAgQAAAAAA=</HashCode>
@@ -10,7 +10,7 @@
       <Property Name="Cuscuz" />
     </ShowAsAssociation>
   </Class>
-  <Class Name="Cuscuzeria.Domain.Entities.Beverage">
+  <Class Name="MyCuscuzeria.Domain.Entities.Beverage">
     <Position X="6.5" Y="7" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAEAAAAQAAAgAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAA=</HashCode>
@@ -20,8 +20,8 @@
       <Property Name="Order" />
     </ShowAsAssociation>
   </Class>
-  <Class Name="Cuscuzeria.Domain.Entities.Cuscuz">
-    <Position X="4" Y="1.25" Width="1.5" />
+  <Class Name="MyCuscuzeria.Domain.Entities.Cuscuz">
+    <Position X="4" Y="1" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAEAAAQAAAAgQAAAAAAAAAAAAAAAAAAAAYAAAAAAAAA=</HashCode>
       <FileName>Entities\Cuscuz.cs</FileName>
@@ -30,7 +30,7 @@
       <Property Name="Order" />
     </ShowAsAssociation>
   </Class>
-  <Class Name="Cuscuzeria.Domain.Entities.Cuscuzeiro">
+  <Class Name="MyCuscuzeria.Domain.Entities.Cuscuzeiro">
     <Position X="8.75" Y="4.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAEAACAAAAAgAAAAAEAAAAAAAAAAAAAAAAEAAEAAAAA=</HashCode>
@@ -40,14 +40,14 @@
       <Property Name="Order" />
     </ShowAsAssociation>
   </Class>
-  <Class Name="Cuscuzeria.Domain.Entities.Order">
+  <Class Name="MyCuscuzeria.Domain.Entities.Order">
     <Position X="6.5" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>EAABgQAAMAgCQAAAAAAAAAAAAAIAAAAAAAABAAAAAAA=</HashCode>
       <FileName>Entities\Order.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Cuscuzeria.Domain.Entities.Promo">
+  <Class Name="MyCuscuzeria.Domain.Entities.Promo">
     <Position X="4" Y="5.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>QAEAAAAAAAAgAAAAAAAAAAAAAAgAAAEgAAAQAAAAAAA=</HashCode>
@@ -57,7 +57,7 @@
       <Property Name="Order" />
     </ShowAsAssociation>
   </Class>
-  <Class Name="Cuscuzeria.Domain.Entities.Type">
+  <Class Name="MyCuscuzeria.Domain.Entities.Type">
     <Position X="6.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAgAAAAAAAAAAAAAAAAABAgAAAAQAAAAAA=</HashCode>
@@ -67,7 +67,7 @@
       <Property Name="Cuscuz" />
     </ShowAsAssociation>
   </Class>
-  <Class Name="Cuscuzeria.Domain.Entities.User">
+  <Class Name="MyCuscuzeria.Domain.Entities.User">
     <Position X="2" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAMAAAAAACAgAAAAASAAAAgAAAAAAAACAAAAIAAAAIA=</HashCode>
@@ -77,7 +77,7 @@
       <Property Name="Order" />
     </ShowAsAssociation>
   </Class>
-  <Class Name="Cuscuzeria.Domain.Drink">
+  <Class Name="MyCuscuzeria.Domain.Entities.Drink">
     <Position X="9" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAEAAAAAAAAgAAAAAAAAAAgAAAAAAAAAAAAAAAAAgAA=</HashCode>
