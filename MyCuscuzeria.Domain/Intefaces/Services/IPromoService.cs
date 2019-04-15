@@ -1,8 +1,9 @@
 ﻿using MyCuscuzeria.Domain.Arguments.Promo;
+using MyCuscuzeria.Domain.Services.Base;
 
 namespace MyCuscuzeria.Domain.Services
 {
-    public interface IPromoService
+    public interface IPromoService : IServiceBase
     {
         /// <summary>
         /// Add Promo

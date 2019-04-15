@@ -1,8 +1,9 @@
 ﻿using MyCuscuzeria.Domain.Arguments.Cuscuz;
+using MyCuscuzeria.Domain.Services.Base;
 
 namespace MyCuscuzeria.Domain.Services
 {
-    public interface ICuscuzService
+    public interface ICuscuzService : IServiceBase
     {
         /// <summary>
         /// Add Cuscuz

@@ -1,8 +1,9 @@
 ﻿using MyCuscuzeria.Domain.Arguments.Order;
+using MyCuscuzeria.Domain.Services.Base;
 
 namespace MyCuscuzeria.Domain.Services
 {
-    public interface IOrderService
+    public interface IOrderService : IServiceBase
     {
         /// <summary>
         /// Add Order

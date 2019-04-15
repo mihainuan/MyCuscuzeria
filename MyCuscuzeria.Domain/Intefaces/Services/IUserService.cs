@@ -1,8 +1,9 @@
 ﻿using MyCuscuzeria.Domain.Arguments.User;
+using MyCuscuzeria.Domain.Services.Base;
 
 namespace MyCuscuzeria.Domain.Services
 {
-    public interface IUserService
+    public interface IUserService : IServiceBase
     {
         /// <summary>
         /// Add/Save User

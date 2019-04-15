@@ -1,8 +1,9 @@
 ﻿using MyCuscuzeria.Domain.Arguments.Accompaniment;
+using MyCuscuzeria.Domain.Services.Base;
 
 namespace MyCuscuzeria.Domain.Services
 {
-    public interface IAccompanimentService
+    public interface IAccompanimentService : IServiceBase
     {
         /// <summary>
         /// Add Accompaniment

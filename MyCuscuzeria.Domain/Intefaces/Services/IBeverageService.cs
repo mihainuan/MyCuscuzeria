@@ -1,8 +1,9 @@
 ﻿using MyCuscuzeria.Domain.Arguments.Beverage;
+using MyCuscuzeria.Domain.Services.Base;
 
 namespace MyCuscuzeria.Domain.Services
 {
-    public interface IBeverageService
+    public interface IBeverageService : IServiceBase
     {
         /// <summary>
         /// Add Beverage
