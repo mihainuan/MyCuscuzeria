@@ -1,5 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using MyCuscuzeria.Domain.Intefaces.Repositories;
+﻿using MyCuscuzeria.Domain.Intefaces.Repositories;
 using MyCuscuzeria.Infrastructure.Persistence.EF;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,13 +15,14 @@ namespace MyCuscuzeria.Infrastructure.Persistence.Repositories
             _cuscuzeriaContext = cuscuzeriaContext;
         }
 
-        public IEnumerable<Type> GetOneType(int typeid)
+        public Type GetOneType(int typeid)
         {
-            return _cuscuzeriaContext.Types.Where(x => x.TypeId == typeid).AsNoTracking().ToList();
+            return _cuscuzeriaContext.Types.FirstOrDefault(x => x.TypeId == typeid);
         }
 
         public IEnumerable<Type> GetAllTypes()
         {
+            //TODO: Review later
             return _cuscuzeriaContext.Types.ToList();
         }
 
@@ -35,11 +35,6 @@ namespace MyCuscuzeria.Infrastructure.Persistence.Repositories
         public void DeleteType(Type type)
         {
             _cuscuzeriaContext.Remove(type);
-        }
-
-        Type ITypeRepository.GetOneType(int typeid)
-        {
-            throw new System.NotImplementedException();
         }
     }
 }

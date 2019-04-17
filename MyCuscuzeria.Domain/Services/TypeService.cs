@@ -3,6 +3,7 @@ using MyCuscuzeria.Domain.Entities;
 using MyCuscuzeria.Domain.Intefaces.Repositories;
 using prmToolkit.NotificationPattern;
 using System.Collections.Generic;
+using Response = MyCuscuzeria.Domain.Arguments.Base.Response;
 using Type = MyCuscuzeria.Domain.Entities.Type;
 
 namespace MyCuscuzeria.Domain.Services
@@ -38,12 +39,17 @@ namespace MyCuscuzeria.Domain.Services
             return (TypeResponse)type;
         }
 
-        public IEnumerable<TypeResponse> ListTypes()
+        public Response RemoveType(int TypeId)
         {
             throw new System.NotImplementedException();
         }
 
-        public Arguments.Base.Response RemoveType(int TypeId)
+        public Type GetOneType(int typeid)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public IEnumerable<TypeResponse> GetAllTypes()
         {
             throw new System.NotImplementedException();
         }

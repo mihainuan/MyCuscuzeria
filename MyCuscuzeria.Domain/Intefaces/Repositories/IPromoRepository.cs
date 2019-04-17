@@ -1,11 +1,16 @@
 ﻿using MyCuscuzeria.Domain.Entities;
+using System.Collections.Generic;
 
 namespace MyCuscuzeria.Domain.Intefaces.Repositories
 {
     public interface IPromoRepository
     {
-        Promo GetPromo(int promoid);
+        Promo GetOnePromo(int promoid);
 
-        void SavePromo(Promo promo);
+        IEnumerable<Promo> GetAllPromo();
+
+        Promo AddPromo(Promo promo);
+
+        void DeletePromo(Promo promo);
     }
 }
