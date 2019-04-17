@@ -1,11 +1,16 @@
 ﻿using MyCuscuzeria.Domain.Entities;
+using System.Collections.Generic;
 
 namespace MyCuscuzeria.Domain.Intefaces.Repositories
 {
     public interface ITypeRepository
     {
-        Type GetType(int typeid);
+        Type GetOneType(int typeid);
 
-        void SaveType(Type type);
+        IEnumerable<Type> GetAllTypes();
+
+        Type AddType(Type type);
+
+        void DeleteType(Type type);
     }
 }

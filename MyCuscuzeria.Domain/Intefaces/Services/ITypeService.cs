@@ -1,5 +1,7 @@
 ﻿using MyCuscuzeria.Domain.Arguments.Type;
 using MyCuscuzeria.Domain.Services.Base;
+using System.Collections.Generic;
+using Response = MyCuscuzeria.Domain.Arguments.Base.Response;
 
 namespace MyCuscuzeria.Domain.Services
 {
@@ -9,7 +11,21 @@ namespace MyCuscuzeria.Domain.Services
         /// Add/Save Type
         /// </summary>
         /// <param name="request"></param>
+        /// <param name="TypeId"></param>
         /// <returns></returns>
-        AddTypeResponse AddType(AddTypeRequest request);
+        TypeResponse AddType(AddTypeRequest request, int TypeId);
+
+        /// <summary>
+        /// List ALL types
+        /// </summary>
+        /// <returns></returns>
+        IEnumerable<TypeResponse> ListTypes();
+
+        /// <summary>
+        /// Deletes ONE specific Type
+        /// </summary>
+        /// <param name="TypeId"></param>
+        /// <returns></returns>
+        Response RemoveType(int TypeId);
     }
 }
