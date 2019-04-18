@@ -35,5 +35,12 @@ namespace MyCuscuzeria.Domain.Services
         /// <param name="PromoId"></param>
         /// <returns></returns>
         Response RemovePromo(int promoId);
+
+        /// <summary>
+        /// Checks if there is a order attch w/ promoId
+        /// </summary>
+        /// <param name="promoId"></param>
+        /// <returns></returns>
+        bool ExistOrder(int promoId);
     }
 }

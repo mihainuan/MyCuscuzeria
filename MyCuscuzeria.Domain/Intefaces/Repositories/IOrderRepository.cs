@@ -1,11 +1,19 @@
 ﻿using MyCuscuzeria.Domain.Entities;
+using System.Collections.Generic;
 
 namespace MyCuscuzeria.Domain.Intefaces.Repositories
 {
     public interface IOrderRepository
     {
-        Order GetOrder(int orderid);
+        Order GetOneOrder(int orderId);
 
-        void SaveOrder(Order order);
+        IEnumerable<Order> GetAllOrders();
+
+        Order AddOrder(Order promo);
+
+        void DeleteOrder(Order promo);
+
+        bool ExistingPromo(int promoId);
+
     }
 }

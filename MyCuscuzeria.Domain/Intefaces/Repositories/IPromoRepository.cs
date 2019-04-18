@@ -12,5 +12,7 @@ namespace MyCuscuzeria.Domain.Intefaces.Repositories
         Promo AddPromo(Promo promo);
 
         void DeletePromo(Promo promo);
+
+        Order ExistOrder(int promoId);
     }
 }

@@ -36,5 +36,11 @@ namespace MyCuscuzeria.Infrastructure.Persistence.Repositories
         {
             _cuscuzeriaContext.Remove(promo);
         }
+
+        public Order ExistOrder(int promoId)
+        {
+            //_cuscuzeriaContext.
+            return _cuscuzeriaContext.Orders.FirstOrDefault(x => x.PromoId == promoId);
+        }
     }
 }
