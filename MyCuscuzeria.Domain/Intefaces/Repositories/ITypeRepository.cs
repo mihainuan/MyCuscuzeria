@@ -12,5 +12,7 @@ namespace MyCuscuzeria.Domain.Intefaces.Repositories
         Type AddType(Type type);
 
         void DeleteType(Type type);
+
+        bool ExistCuscuz(int typeId);
     }
 }

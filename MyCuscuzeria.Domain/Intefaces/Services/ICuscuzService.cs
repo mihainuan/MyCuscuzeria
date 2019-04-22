@@ -10,6 +10,18 @@ namespace MyCuscuzeria.Domain.Services
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
-        AddCuscuzResponse AddCuscuz(AddCuscuzRequest request);
+        CuscuzResponse AddCuscuz(AddCuscuzRequest request);
+
+
+
+
+
+
+        /// <summary>
+        /// Checks if there is an existing Type in specific Cuscuz
+        /// </summary>
+        /// <param name="typeId"></param>
+        /// <returns></returns>
+        bool ExistingType(int typeId);
     }
 }

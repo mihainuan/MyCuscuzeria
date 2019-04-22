@@ -37,7 +37,7 @@ namespace MyCuscuzeria.Domain.Services
         Response RemovePromo(int promoId);
 
         /// <summary>
-        /// Checks if there is a order attch w/ promoId
+        /// Checks if there is a ORDER attch w/ promoId
         /// </summary>
         /// <param name="promoId"></param>
         /// <returns></returns>

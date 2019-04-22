@@ -27,7 +27,7 @@ namespace MyCuscuzeria.Domain.Services
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
-        AddOrderResponse AddOrder(AddOrderRequest request);
+        OrderResponse AddOrder(AddOrderRequest request);
 
         /// <summary>
         /// Deletes ONE specific Promo

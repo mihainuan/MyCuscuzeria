@@ -10,6 +10,6 @@ namespace MyCuscuzeria.Domain.Services
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
-        AddAccompanimentResponse AddAccompaniment(AddAccompanimentRequest request);
+        AccompanimentResponse AddAccompaniment(AddAccompanimentRequest request);
     }
 }

@@ -8,8 +8,10 @@ namespace MyCuscuzeria.Infrastructure.Persistence.Repositories
 {
     public class TypeRepository : ITypeRepository
     {
+        //Database context
         private readonly MyCuscuzeriaContext _cuscuzeriaContext;
 
+        //Constructor using IoT (Injeção de Dependências)
         public TypeRepository(MyCuscuzeriaContext cuscuzeriaContext)
         {
             _cuscuzeriaContext = cuscuzeriaContext;
@@ -35,6 +37,17 @@ namespace MyCuscuzeria.Infrastructure.Persistence.Repositories
         public void DeleteType(Type type)
         {
             _cuscuzeriaContext.Remove(type);
+        }
+
+        public bool ExistCuscuz(int typeId)
+        {
+            var exists = _cuscuzeriaContext.Types.FirstOrDefault(x => x.TypeId == typeId);
+
+            if (exists == null)
+            {
+                return false;
+            }
+            return true;
         }
     }
 }

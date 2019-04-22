@@ -10,6 +10,6 @@ namespace MyCuscuzeria.Domain.Services
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
-        AddDrinkResponse AddDrink(AddDrinkRequest request);
+        DrinkResponse AddDrink(AddDrinkRequest request);
     }
 }

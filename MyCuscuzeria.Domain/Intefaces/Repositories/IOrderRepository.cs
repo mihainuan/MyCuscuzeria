@@ -9,11 +9,8 @@ namespace MyCuscuzeria.Domain.Intefaces.Repositories
 
         IEnumerable<Order> GetAllOrders();
 
-        Order AddOrder(Order promo);
+        Order AddOrder(Order order);
 
-        void DeleteOrder(Order promo);
-
-        bool ExistingPromo(int promoId);
-
+        void DeleteOrder(Order order);
     }
 }

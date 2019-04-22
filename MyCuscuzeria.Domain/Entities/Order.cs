@@ -41,5 +41,27 @@ namespace MyCuscuzeria.Domain.Entities
             Drinks = new List<Drink>();
             Promo = new List<Promo>();
         }
+
+
+
+        public Order(StatusEnum OrderStatus, DateTime OrderCreation, decimal OrderTotal, Cuscuzeiro Cuscuzeiro, User User)
+        {
+            OrderStatus = OrderStatus;
+            OrderCreation = OrderCreation;
+            OrderTotal = OrderTotal;
+            Cuscuzeiro = Cuscuzeiro;
+            User = User;
+
+            Beverages = new List<Beverage>();
+            Cuscuzes = new List<Cuscuz>();
+            Drinks = new List<Drink>();
+            Promo = new List<Promo>();
+
+            //new AddNotifications<Order>(this).IfNullOrInvalidLength(x => x.PromoTitle, 2, 100,
+            //        MSG.X0_OBRIGATORIO_E_DEVE_CONTER_ENTRE_X1_E_X2_CARACTERES)
+            //    .IfNullOrInvalidLength(x => x.Description, 10, 200,
+            //        MSG.X0_OBRIGATORIO_E_DEVE_CONTER_ENTRE_X1_E_X2_CARACTERES);
+            //AddNotifications(order);
+        }
     }
 }

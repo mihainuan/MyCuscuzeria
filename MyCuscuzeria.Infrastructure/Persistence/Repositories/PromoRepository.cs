@@ -8,8 +8,10 @@ namespace MyCuscuzeria.Infrastructure.Persistence.Repositories
 {
     public class PromoRepository : IPromoRepository
     {
+        //Database context
         private readonly MyCuscuzeriaContext _cuscuzeriaContext;
 
+        //Constructor using IoT (Injeção de Dependências)
         public PromoRepository(MyCuscuzeriaContext cuscuzeriaContext)
         {
             _cuscuzeriaContext = cuscuzeriaContext;
@@ -37,10 +39,17 @@ namespace MyCuscuzeria.Infrastructure.Persistence.Repositories
             _cuscuzeriaContext.Remove(promo);
         }
 
-        public Order ExistOrder(int promoId)
+        public bool ExistOrder(int promoId)
         {
-            //_cuscuzeriaContext.
-            return _cuscuzeriaContext.Orders.FirstOrDefault(x => x.PromoId == promoId);
+            var exists = _cuscuzeriaContext.Promos.FirstOrDefault(x => x.PromoId == promoId);
+
+            if (exists == null)
+            {
+                return false;
+            }
+
+            return true;
+
         }
     }
 }

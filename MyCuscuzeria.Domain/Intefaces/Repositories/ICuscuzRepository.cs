@@ -7,5 +7,15 @@ namespace MyCuscuzeria.Domain.Intefaces.Repositories
         Cuscuz GetCuscuz(int cuscuzid);
 
         void SaveCuscuz(Cuscuz cuscuz);
+
+
+
+
+
+
+
+
+
+        bool ExistingType(int typeId);
     }
 }

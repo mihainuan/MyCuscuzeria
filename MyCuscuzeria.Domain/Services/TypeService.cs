@@ -1,9 +1,11 @@
 ﻿using MyCuscuzeria.Domain.Arguments.Type;
 using MyCuscuzeria.Domain.Entities;
 using MyCuscuzeria.Domain.Intefaces.Repositories;
+using MyCuscuzeria.Domain.Resources;
 using prmToolkit.NotificationPattern;
+using prmToolkit.NotificationPattern.Extensions;
 using System.Collections.Generic;
-using Response = MyCuscuzeria.Domain.Arguments.Base.Response;
+using System.Linq;
 using Type = MyCuscuzeria.Domain.Entities.Type;
 
 namespace MyCuscuzeria.Domain.Services
@@ -13,10 +15,27 @@ namespace MyCuscuzeria.Domain.Services
         private readonly ICuscuzRepository _cuscuzRepository;
         private readonly ITypeRepository _typeRepository;
 
+        //Constructor using IoT (Injeção de Dependências)
         public TypeService(ICuscuzRepository cuscuzRepository, ITypeRepository typeRepository)
         {
             _cuscuzRepository = cuscuzRepository;
             _typeRepository = typeRepository;
+        }
+
+        //TODO: Later...
+        public Type GetOneType(int typeid)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        //Section 2, Class 20 (22:08)
+        public IEnumerable<TypeResponse> GetAllTypes()
+        {
+            IEnumerable<Type> typeCollection = _typeRepository.GetAllTypes();
+
+            var response = typeCollection.ToList().Select(entity => (TypeResponse)entity);
+
+            return response;
         }
 
         public TypeResponse AddType(AddTypeRequest request, int CuscuzId)
@@ -39,19 +58,36 @@ namespace MyCuscuzeria.Domain.Services
             return (TypeResponse)type;
         }
 
-        public Response RemoveType(int TypeId)
+        public Arguments.Base.Response RemoveType(int TypeId)
         {
-            throw new System.NotImplementedException();
+            //Verifica se existe um Cuscuz vinculada antes de excluir o Type
+            bool existCuscuz = _cuscuzRepository.ExistingType(TypeId);
+
+            if (existCuscuz)
+            {
+                AddNotification("Type", MSG.NAO_E_POSSIVEL_EXCLUIR_UMA_X0_ASSOCIADA_A_UMA_X1.ToFormat("Tipo", "Cuscuz"));
+                return null;
+            }
+
+            Type type = _typeRepository.GetOneType(TypeId);
+
+            if (type == null)
+            {
+                AddNotification("Type", MSG.DADOS_NAO_ENCONTRADOS);
+                return null;
+            }
+
+            if (this.IsInvalid()) return null;
+
+            _typeRepository.DeleteType(type);
+
+            return new Arguments.Base.Response() { Message = MSG.OPERACAO_REALIZADA_COM_SUCESSO };
         }
 
-        public Type GetOneType(int typeid)
+        //Checks if Type exists in ANY Cuscuz
+        public bool ExistCuscuz(int typeId)
         {
-            throw new System.NotImplementedException();
-        }
-
-        public IEnumerable<TypeResponse> GetAllTypes()
-        {
-            throw new System.NotImplementedException();
+            return _typeRepository.ExistCuscuz(typeId);
         }
     }
 }

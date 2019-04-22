@@ -35,5 +35,12 @@ namespace MyCuscuzeria.Domain.Services
         /// <param name="TypeId"></param>
         /// <returns></returns>
         Response RemoveType(int TypeId);
+
+        /// <summary>
+        /// Checks if there is a CUSCUZ attch w/ typeId
+        /// </summary>
+        /// <param name="typeId"></param>
+        /// <returns></returns>
+        bool ExistCuscuz(int typeId);
     }
 }

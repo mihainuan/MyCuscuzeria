@@ -3,7 +3,9 @@ using MyCuscuzeria.Domain.Entities;
 using MyCuscuzeria.Domain.Intefaces.Repositories;
 using MyCuscuzeria.Domain.Resources;
 using prmToolkit.NotificationPattern;
+using prmToolkit.NotificationPattern.Extensions;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace MyCuscuzeria.Domain.Services
 {
@@ -12,10 +14,25 @@ namespace MyCuscuzeria.Domain.Services
         private readonly IOrderRepository _orderRepository;
         private readonly IPromoRepository _promoRepository;
 
+        //Constructor using IoT (Injeção de Dependências)
         public PromoService(IOrderRepository orderRepository, IPromoRepository promoRepository)
         {
             _orderRepository = orderRepository;
             _promoRepository = promoRepository;
+        }
+
+        //TODO: Later...
+        public Promo GetOnePromo(int promoId)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        //Section 2, Class 20 (22:08)
+        public IEnumerable<PromoResponse> GetAllPromos()
+        {
+            IEnumerable<Promo> promoCollection = _promoRepository.GetAllPromo();
+            var response = promoCollection.ToList().Select(entity => (PromoResponse)entity);
+            return response;
         }
 
         public PromoResponse AddPromo(AddPromoRequest request, int orderId)
@@ -24,7 +41,7 @@ namespace MyCuscuzeria.Domain.Services
 
             Promo promo = new Promo(request.PromoTitle, request.Description, request.Active, order);
 
-            AddNotifications(order);
+            AddNotifications(promo);
 
             if (this.IsInvalid())
             {
@@ -38,39 +55,42 @@ namespace MyCuscuzeria.Domain.Services
             return (PromoResponse)promo;
         }
 
-        public IEnumerable<PromoResponse> GetAllPromos()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public Promo GetOnePromo(int promoId)
-        {
-            throw new System.NotImplementedException();
-        }
-
         public Arguments.Base.Response RemovePromo(int promoId)
         {
-            //TODO: To be continued...
-            //bool existOrderAttached = _
-            var existOrder = _promoRepository.GetOnePromo(promoId);
+            //Verifica se existe uma Order vinculada antes de excluir a Promo
+            bool existOrder = _promoRepository.ExistOrder(promoId);
 
-            var promo = _promoRepository.GetOnePromo(promoId);
+            if (existOrder)
+            {
+                AddNotification("Promo", MSG.NAO_E_POSSIVEL_EXCLUIR_UMA_X0_ASSOCIADA_A_UMA_X1.ToFormat("Promoção", "Pedido"));
+                return null;
+            }
 
-            if (promo == null) return null;
+            Promo promo = _promoRepository.GetOnePromo(promoId);
+
+            if (promo == null)
+            {
+                AddNotification("Promo", MSG.DADOS_NAO_ENCONTRADOS);
+                return null;
+            }
 
             if (promo.Active)
             {
                 AddNotification("Promo", "Não é possível excluir uma Promo ativa.");
+                return null;
             }
+
+            if (this.IsInvalid()) return null;
 
             _promoRepository.DeletePromo(promo);
 
             return new Arguments.Base.Response() { Message = MSG.OPERACAO_REALIZADA_COM_SUCESSO };
         }
 
+        //Checks if Promo exists in ANY Order
         public bool ExistOrder(int promoId)
         {
-            return _orderRepository.ExistingPromo(promoId);
+            return _promoRepository.ExistOrder(promoId);
         }
     }
 }

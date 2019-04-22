@@ -13,6 +13,6 @@ namespace MyCuscuzeria.Domain.Intefaces.Repositories
 
         void DeletePromo(Promo promo);
 
-        Order ExistOrder(int promoId);
+        bool ExistOrder(int promoId);
     }
 }
