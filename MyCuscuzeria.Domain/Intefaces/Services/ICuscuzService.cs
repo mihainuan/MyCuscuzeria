@@ -1,27 +1,46 @@
-﻿using MyCuscuzeria.Domain.Arguments.Cuscuz;
+﻿using MyCuscuzeria.Domain.Arguments.Base;
+using MyCuscuzeria.Domain.Arguments.Cuscuz;
+using MyCuscuzeria.Domain.Entities;
 using MyCuscuzeria.Domain.Services.Base;
+using System.Collections.Generic;
 
 namespace MyCuscuzeria.Domain.Services
 {
     public interface ICuscuzService : IServiceBase
     {
         /// <summary>
-        /// Add Cuscuz
+        /// List ONE specific Cuscuz
         /// </summary>
-        /// <param name="request"></param>
+        /// <param name="Cuscuzid"></param>
         /// <returns></returns>
-        CuscuzResponse AddCuscuz(AddCuscuzRequest request);
-
-
-
-
-
+        Cuscuz GetOneCuscuz(int cuscuzId);
 
         /// <summary>
-        /// Checks if there is an existing Type in specific Cuscuz
+        /// List ALL Cuscuzes
         /// </summary>
-        /// <param name="typeId"></param>
         /// <returns></returns>
-        bool ExistingType(int typeId);
+        IEnumerable<CuscuzResponse> GetAllCuscuzes();
+
+        /// <summary>
+        /// Add/Save Cuscuz
+        /// </summary>
+        /// <param name="request"></param>
+        /// <param name="CuscuzId"></param>
+        /// <returns></returns>
+        CuscuzResponse AddCuscuz(AddCuscuzRequest request, int orderId);
+
+        /// <summary>
+        /// Deletes ONE specific Cuscuz
+        /// </summary>
+        /// <param name="CuscuzId"></param>
+        /// <returns></returns>
+        Response RemoveCuscuz(int cuscuzId);
+
+        /// <summary>
+        /// Checks if there is an existing Order to a specific Cuscuz
+        /// </summary>
+        /// <param name="cuscuzId"></param>
+        /// <returns></returns>
+        bool ExistOrder(int cuscuzId);
     }
 }

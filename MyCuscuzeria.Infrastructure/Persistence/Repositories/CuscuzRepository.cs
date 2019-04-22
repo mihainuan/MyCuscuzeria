@@ -6,42 +6,43 @@ using System.Linq;
 
 namespace MyCuscuzeria.Infrastructure.Persistence.Repositories
 {
-    public class PromoRepository : IPromoRepository
+    public class CuscuzRepository : ICuscuzRepository
     {
+
         //Database context
         private readonly MyCuscuzeriaContext _cuscuzeriaContext;
 
         //Constructor using IoT (Injeção de Dependências)
-        public PromoRepository(MyCuscuzeriaContext cuscuzeriaContext)
+        public CuscuzRepository(MyCuscuzeriaContext cuscuzeriaContext)
         {
             _cuscuzeriaContext = cuscuzeriaContext;
         }
 
-        public Promo GetOnePromo(int promoid)
+        public Cuscuz GetOneCuscuz(int cuscuzId)
         {
-            return _cuscuzeriaContext.Promos.FirstOrDefault(x => x.PromoId == promoid);
+            return _cuscuzeriaContext.Cuscuz.FirstOrDefault(x => x.CuscuzId == cuscuzId);
         }
 
-        public IEnumerable<Promo> GetAllPromo()
+        public IEnumerable<Cuscuz> GetAllCuscuz()
         {
             //TODO: Review later
-            return _cuscuzeriaContext.Promos.ToList();
+            return _cuscuzeriaContext.Cuscuz.ToList();
         }
 
-        public Promo AddPromo(Promo promo)
+        public Cuscuz AddCuscuz(Cuscuz cuscuz)
         {
-            _cuscuzeriaContext.Promos.Add(promo);
-            return promo;
+            _cuscuzeriaContext.Cuscuz.Add(cuscuz);
+            return cuscuz;
         }
 
-        public void DeletePromo(Promo promo)
+        public void DeleteCuscuz(Cuscuz cuscuz)
         {
-            _cuscuzeriaContext.Promos.Remove(promo);
+            _cuscuzeriaContext.Cuscuz.Remove(cuscuz);
         }
 
-        public bool ExistOrder(int promoId)
+        public bool ExistOrder(int OrderId)
         {
-            var exists = _cuscuzeriaContext.Promos.FirstOrDefault(x => x.PromoId == promoId);
+            var exists = _cuscuzeriaContext.Cuscuz.FirstOrDefault(x => x.OrderId == OrderId);
             if (exists == null)
             {
                 return false;

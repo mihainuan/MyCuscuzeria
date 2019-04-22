@@ -6,42 +6,42 @@ using System.Linq;
 
 namespace MyCuscuzeria.Infrastructure.Persistence.Repositories
 {
-    public class PromoRepository : IPromoRepository
+    public class DrinkRepository : IDrinkRepository
     {
         //Database context
         private readonly MyCuscuzeriaContext _cuscuzeriaContext;
 
         //Constructor using IoT (Injeção de Dependências)
-        public PromoRepository(MyCuscuzeriaContext cuscuzeriaContext)
+        public DrinkRepository(MyCuscuzeriaContext cuscuzeriaContext)
         {
             _cuscuzeriaContext = cuscuzeriaContext;
         }
 
-        public Promo GetOnePromo(int promoid)
+        public Drink GetOneDrink(int drinkId)
         {
-            return _cuscuzeriaContext.Promos.FirstOrDefault(x => x.PromoId == promoid);
+            return _cuscuzeriaContext.Drinks.FirstOrDefault(x => x.DrinkId == drinkId);
         }
 
-        public IEnumerable<Promo> GetAllPromo()
+        public IEnumerable<Drink> GetAllDrink()
         {
             //TODO: Review later
-            return _cuscuzeriaContext.Promos.ToList();
+            return _cuscuzeriaContext.Drinks.ToList();
         }
 
-        public Promo AddPromo(Promo promo)
+        public Drink AddDrink(Drink drink)
         {
-            _cuscuzeriaContext.Promos.Add(promo);
-            return promo;
+            _cuscuzeriaContext.Drinks.Add(drink);
+            return drink;
         }
 
-        public void DeletePromo(Promo promo)
+        public void DeleteDrink(Drink drink)
         {
-            _cuscuzeriaContext.Promos.Remove(promo);
+            _cuscuzeriaContext.Drinks.Remove(drink);
         }
 
-        public bool ExistOrder(int promoId)
+        public bool ExistOrder(int OrderId)
         {
-            var exists = _cuscuzeriaContext.Promos.FirstOrDefault(x => x.PromoId == promoId);
+            var exists = _cuscuzeriaContext.Drinks.FirstOrDefault(x => x.OrderId == OrderId);
             if (exists == null)
             {
                 return false;

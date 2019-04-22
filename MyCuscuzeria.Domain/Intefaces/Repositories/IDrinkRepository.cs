@@ -5,13 +5,13 @@ namespace MyCuscuzeria.Domain.Intefaces.Repositories
 {
     public interface IDrinkRepository
     {
-        Order GetOneOrder(int Orderid);
+        Drink GetOneDrink(int drinkId);
 
-        IEnumerable<Order> GetAllOrder();
+        IEnumerable<Drink> GetAllDrink();
 
-        Order AddOrder(Order Order);
+        Drink AddDrink(Drink drink);
 
-        void DeleteOrder(Order Order);
+        void DeleteDrink(Drink drink);
 
         bool ExistOrder(int OrderId);
     }

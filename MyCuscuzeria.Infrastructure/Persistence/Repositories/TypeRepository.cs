@@ -36,7 +36,7 @@ namespace MyCuscuzeria.Infrastructure.Persistence.Repositories
 
         public void DeleteType(Type type)
         {
-            _cuscuzeriaContext.Remove(type);
+            _cuscuzeriaContext.Types.Remove(type);
         }
 
         public bool ExistCuscuz(int typeId)

@@ -1,11 +1,18 @@
 ﻿using MyCuscuzeria.Domain.Entities;
+using System.Collections.Generic;
 
 namespace MyCuscuzeria.Domain.Intefaces.Repositories
 {
     public interface IBeverageRepository
     {
-        Beverage GetBeverage(int beverageid);
+        Beverage GetOneBeverage(int beverageId);
 
-        void SaveBeverage(Beverage beverage);
+        IEnumerable<Beverage> GetAllBeverage();
+
+        Beverage AddBeverage(Beverage beverage);
+
+        void DeleteBeverage(Beverage beverage);
+
+        bool ExistOrder(int OrderId);
     }
 }

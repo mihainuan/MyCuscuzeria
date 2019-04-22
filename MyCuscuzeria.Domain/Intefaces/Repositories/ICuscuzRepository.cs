@@ -1,21 +1,18 @@
 ﻿using MyCuscuzeria.Domain.Entities;
+using System.Collections.Generic;
 
 namespace MyCuscuzeria.Domain.Intefaces.Repositories
 {
     public interface ICuscuzRepository
     {
-        Cuscuz GetCuscuz(int cuscuzid);
+        Cuscuz GetOneCuscuz(int cuscuzId);
 
-        void SaveCuscuz(Cuscuz cuscuz);
+        IEnumerable<Cuscuz> GetAllCuscuz();
 
+        Cuscuz AddCuscuz(Cuscuz cuscuz);
 
+        void DeleteCuscuz(Cuscuz cuscuz);
 
-
-
-
-
-
-
-        bool ExistingType(int typeId);
+        bool ExistOrder(int OrderId);
     }
 }

@@ -32,15 +32,13 @@ namespace MyCuscuzeria.Domain.Services
         public IEnumerable<TypeResponse> GetAllTypes()
         {
             IEnumerable<Type> typeCollection = _typeRepository.GetAllTypes();
-
             var response = typeCollection.ToList().Select(entity => (TypeResponse)entity);
-
             return response;
         }
 
         public TypeResponse AddType(AddTypeRequest request, int CuscuzId)
         {
-            Cuscuz cuscuz = _cuscuzRepository.GetCuscuz(CuscuzId);
+            Cuscuz cuscuz = _cuscuzRepository.GetOneCuscuz(CuscuzId);
 
             Type type = new Type(request.TypeName, request.Description, cuscuz);
 
@@ -61,7 +59,7 @@ namespace MyCuscuzeria.Domain.Services
         public Arguments.Base.Response RemoveType(int TypeId)
         {
             //Verifica se existe um Cuscuz vinculada antes de excluir o Type
-            bool existCuscuz = _cuscuzRepository.ExistingType(TypeId);
+            bool existCuscuz = _cuscuzRepository.ExistOrder(TypeId);
 
             if (existCuscuz)
             {
