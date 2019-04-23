@@ -8,15 +8,15 @@ namespace MyCuscuzeria.Domain.Entities
     public class Promo : EntityBase
     {
         //PK
-        public int PromoId { get; set; }
-        public string PromoTitle { get; set; }
-        public string Description { get; set; }
-        public DateTime? StartsAt { get; set; }
-        public DateTime? EndsAt { get; set; }
-        public bool Active { get; set; }
+        public int PromoId { get; private set; }
+        public string PromoTitle { get; private set; }
+        public string Description { get; private set; }
+        public DateTime? StartsAt { get; private set; }
+        public DateTime? EndsAt { get; private set; }
+        public bool Active { get; private set; }
 
-        public int OrderId { get; set; }
-        public virtual Order Order { get; set; }
+        public int OrderId { get; private set; }
+        public virtual Order Order { get; private set; }
 
 
         public Promo(string promoTitle, string description, bool active, Order order)

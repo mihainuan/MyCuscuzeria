@@ -8,15 +8,15 @@ namespace MyCuscuzeria.Domain.Entities
     public class Cuscuzeiro : EntityBase
     {
         //PK
-        public int CuscuzeiroId { get; set; }
+        public int CuscuzeiroId { get; private set; }
 
-        public string CuscuzeiroName { get; set; }
+        public string CuscuzeiroName { get; private set; }
         public int Age { get; set; }
-        public DateTime? StartDate { get; set; }
-        public string UrlImg { get; set; }
+        public DateTime? StartDate { get; private set; }
+        public string UrlImg { get; private set; }
 
-        public int OrderId { get; set; }
-        public virtual Order Order { get; set; }
+        public int OrderId { get; private set; }
+        public virtual Order Order { get; private set; }
 
         public Cuscuzeiro(string cuscuzeironame, Order order)
         {

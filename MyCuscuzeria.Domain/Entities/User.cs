@@ -41,18 +41,18 @@ namespace MyCuscuzeria.Domain.Entities
         }
 
         //PK
-        public int UserId { get; set; }
+        public int UserId { get; private set; }
 
         public string Username { get; private set; }
         public FullName Fullname { get; private set; }
         public string Password { get; private set; }
         public string Email { get; private set; }
-        public string Phone { get; set; }
-        public DateTime CreatedAt { get; set; }
-        public DateTime? LastOrder { get; set; }
-        public string UrlImg { get; set; }
+        public string Phone { get; private set; }
+        public DateTime CreatedAt { get; private set; }
+        public DateTime? LastOrder { get; private set; }
+        public string UrlImg { get; private set; }
 
-        public virtual Order Order { get; set; }
+        public virtual Order Order { get; private set; }
 
 
     }

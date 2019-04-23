@@ -8,31 +8,31 @@ namespace MyCuscuzeria.Domain.Entities
     public class Order : EntityBase
     {
         //PK
-        public int OrderId { get; set; }
+        public int OrderId { get; private set; }
 
-        public int CuscuzeiroId { get; set; }
-        public int UserId { get; set; }
+        public int CuscuzeiroId { get; private set; }
+        public int UserId { get; private set; }
 
-        public int BeverageId { get; set; }
-        public int CuscuzId { get; set; }
-        public int DrinkId { get; set; }
-        public int PromoId { get; set; }
+        public int BeverageId { get; private set; }
+        public int CuscuzId { get; private set; }
+        public int DrinkId { get; private set; }
+        public int PromoId { get; private set; }
 
-        public StatusEnum OrderStatus { get; set; }
-        public DateTime OrderCreation { get; set; }
-        public bool Delivered { get; set; }
+        public StatusEnum OrderStatus { get; private set; }
+        public DateTime OrderCreation { get; private set; }
+        public bool Delivered { get; private set; }
 
-        public decimal OrderTotal { get; set; }
+        public decimal OrderTotal { get; private set; }
 
         //FK (one-to-one)
-        public virtual Cuscuzeiro Cuscuzeiro { get; set; }
-        public virtual User User { get; set; }
+        public virtual Cuscuzeiro Cuscuzeiro { get; private set; }
+        public virtual User User { get; private set; }
 
         //FK (one-to-many)
-        public virtual ICollection<Beverage> Beverages { get; set; }
-        public virtual ICollection<Cuscuz> Cuscuzes { get; set; }
-        public virtual ICollection<Drink> Drinks { get; set; }
-        public virtual ICollection<Promo> Promo { get; set; }
+        public virtual ICollection<Beverage> Beverages { get; private set; }
+        public virtual ICollection<Cuscuz> Cuscuzes { get; private set; }
+        public virtual ICollection<Drink> Drinks { get; private set; }
+        public virtual ICollection<Promo> Promo { get; private set; }
 
         public Order()
         {

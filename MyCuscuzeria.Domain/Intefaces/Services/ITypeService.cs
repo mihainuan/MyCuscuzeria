@@ -13,7 +13,7 @@ namespace MyCuscuzeria.Domain.Services
         /// </summary>
         /// <param name="typeid"></param>
         /// <returns></returns>
-        Type GetOneType(int typeid);
+        Type GetOneType(int typeId);
 
         /// <summary>
         /// List ALL types

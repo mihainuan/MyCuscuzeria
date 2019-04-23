@@ -8,13 +8,13 @@ namespace MyCuscuzeria.Domain.Entities
     public class Accompaniment : EntityBase
     {
         //PK
-        public int AccompanimentId { get; set; }
+        public int AccompanimentId { get; private set; }
 
-        public string AccompanimentName { get; set; }
-        public string Description { get; set; }
+        public string AccompanimentName { get; private set; }
+        public string Description { get; private set; }
 
-        public int CuscuzId { get; set; }
-        public virtual Cuscuz Cuscuz { get; set; }
+        public int CuscuzId { get; private set; }
+        public virtual Cuscuz Cuscuz { get; private set; }
 
 
         public Accompaniment(string accompanimentname, string description, Cuscuz cuscuz)

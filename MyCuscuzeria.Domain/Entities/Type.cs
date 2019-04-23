@@ -8,7 +8,7 @@ namespace MyCuscuzeria.Domain.Entities
     public class Type : EntityBase
     {
         //PK
-        public int TypeId { get; set; }
+        public int TypeId { get; private set; }
         public string TypeName { get; private set; }
         public string Description { get; private set; }
         public virtual Cuscuz Cuscuz { get; private set; }

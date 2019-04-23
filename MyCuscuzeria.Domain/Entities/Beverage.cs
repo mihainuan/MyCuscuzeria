@@ -7,13 +7,13 @@ namespace MyCuscuzeria.Domain.Entities
     public class Beverage : EntityBase
     {
         //PK
-        public int BeverageId { get; set; }
+        public int BeverageId { get; private set; }
 
-        public string BeverageName { get; set; }
-        public string Description { get; set; }
+        public string BeverageName { get; private set; }
+        public string Description { get; private set; }
 
-        public int OrderId { get; set; }
-        public virtual Order Order { get; set; }
+        public int OrderId { get; private set; }
+        public virtual Order Order { get; private set; }
 
         public Beverage(string beverageName, Order order)
         {
