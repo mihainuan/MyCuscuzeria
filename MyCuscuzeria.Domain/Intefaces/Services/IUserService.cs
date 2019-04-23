@@ -1,4 +1,5 @@
-﻿using MyCuscuzeria.Domain.Arguments.User;
+﻿using MyCuscuzeria.Domain.Arguments.Base;
+using MyCuscuzeria.Domain.Arguments.User;
 using MyCuscuzeria.Domain.Entities;
 using MyCuscuzeria.Domain.Services.Base;
 using System;
@@ -23,6 +24,12 @@ namespace MyCuscuzeria.Domain.Services
         AuthUserResponse AuthUser(AuthUserRequest request);
 
         /// <summary>
+        /// Gets ALL Users
+        /// </summary>
+        /// <returns></returns>
+        IEnumerable<User> GetAllUsers();
+
+        /// <summary>
         /// Gets ALL Users by GuID
         /// </summary>
         /// <param name="userGuid"></param>
@@ -35,6 +42,13 @@ namespace MyCuscuzeria.Domain.Services
         /// <param name="username"></param>
         /// <returns></returns>
         IEnumerable<User> ListUsers(string username);
+
+        /// <summary>
+        /// Deletes ONE User by GuID
+        /// </summary>
+        /// <param name="userGuid"></param>
+        /// <returns></returns>
+        Response RemoveUser(Guid userGuid);
 
     }
 }

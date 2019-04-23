@@ -6,6 +6,7 @@ using prmToolkit.NotificationPattern;
 using prmToolkit.NotificationPattern.Extensions;
 using System;
 using System.Collections.Generic;
+using Response = MyCuscuzeria.Domain.Arguments.Base.Response;
 
 namespace MyCuscuzeria.Domain.Services
 {
@@ -87,6 +88,11 @@ namespace MyCuscuzeria.Domain.Services
             return response;
         }
 
+        public IEnumerable<User> GetAllUsers()
+        {
+            throw new NotImplementedException();
+        }
+
         public IEnumerable<User> ListUsers(Guid userGuid)
         {
             //IEnumerable<User> usersCollection = _userRepository.ListUsers(userGuid);
@@ -96,6 +102,11 @@ namespace MyCuscuzeria.Domain.Services
         }
 
         public IEnumerable<User> ListUsers(string username)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Response RemoveUser(Guid userGuid)
         {
             throw new NotImplementedException();
         }
