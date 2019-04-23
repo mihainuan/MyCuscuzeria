@@ -12,10 +12,11 @@ namespace MyCuscuzeria.Domain.Services
 {
     public class TypeService : Notifiable, ITypeService
     {
+        //Repositories
         private readonly ICuscuzRepository _cuscuzRepository;
         private readonly ITypeRepository _typeRepository;
 
-        //Constructor using IoT (Injeção de Dependências)
+        //Constructor using IoC (Injeção de Dependências)
         public TypeService(ICuscuzRepository cuscuzRepository, ITypeRepository typeRepository)
         {
             _cuscuzRepository = cuscuzRepository;
@@ -36,9 +37,9 @@ namespace MyCuscuzeria.Domain.Services
             return response;
         }
 
-        public TypeResponse AddType(AddTypeRequest request, int CuscuzId)
+        public TypeResponse AddType(AddTypeRequest request, int cuscuzId)
         {
-            Cuscuz cuscuz = _cuscuzRepository.GetOneCuscuz(CuscuzId);
+            Cuscuz cuscuz = _cuscuzRepository.GetOneCuscuz(cuscuzId);
 
             Type type = new Type(request.TypeName, request.Description, cuscuz);
 
@@ -56,10 +57,10 @@ namespace MyCuscuzeria.Domain.Services
             return (TypeResponse)type;
         }
 
-        public Arguments.Base.Response RemoveType(int TypeId)
+        public Arguments.Base.Response RemoveType(int typeId)
         {
             //Verifica se existe um Cuscuz vinculada antes de excluir o Type
-            bool existCuscuz = _cuscuzRepository.ExistOrder(TypeId);
+            bool existCuscuz = _typeRepository.ExistCuscuz(typeId);
 
             if (existCuscuz)
             {
@@ -67,7 +68,7 @@ namespace MyCuscuzeria.Domain.Services
                 return null;
             }
 
-            Type type = _typeRepository.GetOneType(TypeId);
+            Type type = _typeRepository.GetOneType(typeId);
 
             if (type == null)
             {

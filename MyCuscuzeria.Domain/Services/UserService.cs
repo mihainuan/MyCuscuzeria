@@ -9,7 +9,7 @@ namespace MyCuscuzeria.Domain.Services
 {
     public class UserService : Notifiable, IUserService
     {
-        //Service Dependencies
+        //Service Repositories
         private readonly IUserRepository _userRepository;
 
         //Constructor

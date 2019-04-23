@@ -1,4 +1,5 @@
-﻿using MyCuscuzeria.Domain.Intefaces.Repositories;
+﻿using Microsoft.EntityFrameworkCore;
+using MyCuscuzeria.Domain.Intefaces.Repositories;
 using MyCuscuzeria.Infrastructure.Persistence.EF;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,26 +12,26 @@ namespace MyCuscuzeria.Infrastructure.Persistence.Repositories
         //Database context
         private readonly MyCuscuzeriaContext _cuscuzeriaContext;
 
-        //Constructor using IoT (Injeção de Dependências)
+        //Constructor using IoC (Injeção de Dependências)
         public TypeRepository(MyCuscuzeriaContext cuscuzeriaContext)
         {
             _cuscuzeriaContext = cuscuzeriaContext;
         }
 
-        public Type GetOneType(int typeid)
+        public Type GetOneType(int typeId)
         {
-            return _cuscuzeriaContext.Types.FirstOrDefault(x => x.TypeId == typeid);
+            return _cuscuzeriaContext.Types.FirstOrDefault(x => x.TypeId == typeId);
         }
-
+        //Can be an IQueryable (Section 2, Class 21 (33:20))
         public IEnumerable<Type> GetAllTypes()
         {
-            //TODO: Review later
-            return _cuscuzeriaContext.Types.ToList();
+            //TODO: Review later (AsNoTracking => faster queries)
+            return _cuscuzeriaContext.Types.AsNoTracking().ToList();
         }
 
         public Type AddType(Type type)
         {
-            _cuscuzeriaContext.Add(type);
+            _cuscuzeriaContext.Types.Add(type);
             return type;
         }
 

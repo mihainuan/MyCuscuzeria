@@ -11,10 +11,11 @@ namespace MyCuscuzeria.Domain.Services
 {
     public class AccompanimentService : Notifiable, IAccompanimentService
     {
+        //Service Repositories
         private readonly ICuscuzRepository _cuscuzRepository;
         private readonly IAccompanimentRepository _accompanimentRepository;
 
-        //Constructor using IoT (Injeção de Dependências)
+        //Constructor using IoC (Injeção de Dependências)
         public AccompanimentService(ICuscuzRepository cuscuzRepository, IAccompanimentRepository accompanimentRepository)
         {
             _cuscuzRepository = cuscuzRepository;

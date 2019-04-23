@@ -11,7 +11,7 @@ namespace MyCuscuzeria.Infrastructure.Persistence.Repositories
         //Database context
         private readonly MyCuscuzeriaContext _cuscuzeriaContext;
 
-        //Constructor using IoT (Injeção de Dependências)
+        //Constructor using IoC (Injeção de Dependências)
         public DrinkRepository(MyCuscuzeriaContext cuscuzeriaContext)
         {
             _cuscuzeriaContext = cuscuzeriaContext;

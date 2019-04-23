@@ -1,8 +1,8 @@
 ﻿using MyCuscuzeria.Domain.Arguments.Type;
-using MyCuscuzeria.Domain.Entities;
 using MyCuscuzeria.Domain.Services.Base;
 using System.Collections.Generic;
 using Response = MyCuscuzeria.Domain.Arguments.Base.Response;
+using Type = MyCuscuzeria.Domain.Entities.Type;
 
 namespace MyCuscuzeria.Domain.Services
 {
@@ -27,7 +27,7 @@ namespace MyCuscuzeria.Domain.Services
         /// <param name="request"></param>
         /// <param name="TypeId"></param>
         /// <returns></returns>
-        TypeResponse AddType(AddTypeRequest request, int TypeId);
+        TypeResponse AddType(AddTypeRequest request, int cuscuzId);
 
         /// <summary>
         /// Deletes ONE specific Type

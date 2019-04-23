@@ -9,10 +9,10 @@ namespace MyCuscuzeria.Domain.Services
 {
     public class OrderService : Notifiable, IOrderService
     {
-
+        //Service Repository
         private readonly IOrderRepository _orderRepository;
 
-        //Constructor using IoT (Injeção de Dependências)
+        //Constructor using IoC (Injeção de Dependências)
         public OrderService(IOrderRepository orderRepository)
         {
             _orderRepository = orderRepository;
