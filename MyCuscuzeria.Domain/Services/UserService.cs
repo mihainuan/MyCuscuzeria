@@ -4,6 +4,8 @@ using MyCuscuzeria.Domain.Intefaces.Repositories;
 using MyCuscuzeria.Domain.Resources;
 using prmToolkit.NotificationPattern;
 using prmToolkit.NotificationPattern.Extensions;
+using System;
+using System.Collections.Generic;
 
 namespace MyCuscuzeria.Domain.Services
 {
@@ -17,6 +19,8 @@ namespace MyCuscuzeria.Domain.Services
         {
             _userRepository = userRepository;
         }
+
+
 
         public AddUserResponse AddUser(AddUserRequest request)
         {
@@ -81,6 +85,19 @@ namespace MyCuscuzeria.Domain.Services
             var response = (AuthUserResponse)user;
 
             return response;
+        }
+
+        public IEnumerable<User> ListUsers(Guid userGuid)
+        {
+            //IEnumerable<User> usersCollection = _userRepository.ListUsers(userGuid);
+            //IEnumerable<User> response = usersCollection.ToList().Select(entity => (UserResponse)entity);
+            //return response; 
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<User> ListUsers(string username)
+        {
+            throw new NotImplementedException();
         }
     }
 }

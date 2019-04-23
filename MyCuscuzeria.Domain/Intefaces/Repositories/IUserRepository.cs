@@ -1,4 +1,6 @@
 ﻿using MyCuscuzeria.Domain.Entities;
+using System;
+using System.Collections.Generic;
 
 namespace MyCuscuzeria.Domain.Intefaces.Repositories
 {
@@ -11,5 +13,9 @@ namespace MyCuscuzeria.Domain.Intefaces.Repositories
         void SaveUser(User user);
 
         bool Exists(string email);
+
+        IEnumerable<User> ListUsers(Guid userGuid);
+
+        IEnumerable<User> ListUsers(string username);
     }
 }

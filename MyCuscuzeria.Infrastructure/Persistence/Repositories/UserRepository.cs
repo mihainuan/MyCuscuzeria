@@ -1,6 +1,9 @@
-﻿using MyCuscuzeria.Domain.Entities;
+﻿using Microsoft.EntityFrameworkCore;
+using MyCuscuzeria.Domain.Entities;
 using MyCuscuzeria.Domain.Intefaces.Repositories;
 using MyCuscuzeria.Infrastructure.Persistence.EF;
+using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace MyCuscuzeria.Infrastructure.Persistence.Repositories
@@ -32,6 +35,23 @@ namespace MyCuscuzeria.Infrastructure.Persistence.Repositories
         public bool Exists(string email)
         {
             return _cuscuzeriaContext.Users.Any(x => x.Email == email);
+        }
+
+        public IEnumerable<User> ListUsers(Guid userGuid)
+        {
+            return _cuscuzeriaContext.Users.Include(x => x.Order).Where(x => x.GuId == userGuid).ToList();
+        }
+
+        public IEnumerable<User> ListUsers(string username)
+        {
+            var query = _cuscuzeriaContext.Users.Include(x => x.Order).AsQueryable();
+
+            username.Split(' ').ToList().ForEach(user =>
+                {
+                    query = query.Where(x => x.Username.Contains(user));
+                });
+
+            return query.ToList();
         }
     }
 }
