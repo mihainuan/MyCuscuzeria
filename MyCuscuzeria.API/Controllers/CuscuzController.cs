@@ -1,8 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using MyCuscuzeria.API.Controllers.Base;
 using MyCuscuzeria.Domain.Arguments.Cuscuz;
+using MyCuscuzeria.Domain.Arguments.User;
 using MyCuscuzeria.Domain.Services;
 using MyCuscuzeria.Infrastructure.Transactions;
+using Newtonsoft.Json;
 using System;
 using System.Threading.Tasks;
 
@@ -12,20 +16,26 @@ namespace MyCuscuzeria.API.Controllers
     {
 
         private readonly ICuscuzService _cuscuzService;
+        private readonly IHttpContextAccessor _httpContextAccessor;
 
-        public CuscuzController(IUnitOfWork unitofwork, ICuscuzService cuscuzService) : base(unitofwork)
+
+        public CuscuzController(IUnitOfWork unitofwork, ICuscuzService cuscuzService, IHttpContextAccessor httpContextAccessor) : base(unitofwork)
         {
             _cuscuzService = cuscuzService;
+            _httpContextAccessor = httpContextAccessor;
         }
-
 
         // GET
         [HttpGet]
+        [AllowAnonymous]
         [Route("api/Cuscuzs/List")]
         public async Task<IActionResult> List()
         {
             try
             {
+                string userClaim = _httpContextAccessor.HttpContext.User.FindFirst("User").Value;
+                AddUserResponse userResponse = JsonConvert.DeserializeObject<AddUserResponse>(userClaim);
+
                 var response = _cuscuzService.GetAllCuscuzes();
                 return await ResponseAsync(response, _cuscuzService);
             }
@@ -42,8 +52,8 @@ namespace MyCuscuzeria.API.Controllers
         {
             try
             {
-                //string typeClaim = _httpContextAccessor.HttpContext.Type.FindFirst("Type").Value;
-                //AddTypeResponse typeResponse = JsonConvert.DeserializeObject<AddTypeResponse>(); 
+                string userClaim = _httpContextAccessor.HttpContext.User.FindFirst("User").Value;
+                AddUserResponse userResponse = JsonConvert.DeserializeObject<AddUserResponse>(userClaim);
 
                 var response = _cuscuzService.AddCuscuz(request, Int32.MaxValue);
                 return await ResponseAsync(response, _cuscuzService);

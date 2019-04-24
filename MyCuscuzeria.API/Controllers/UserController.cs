@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using MyCuscuzeria.API.Controllers.Base;
@@ -18,10 +19,12 @@ namespace MyCuscuzeria.API.Controllers
     public class UserController : BaseController
     {
         private readonly IUserService _userService;
+        private readonly IHttpContextAccessor _httpContextAccessor;
 
-        public UserController(IUnitOfWork unitofwork, IUserService userservice) : base(unitofwork)
+        public UserController(IUnitOfWork unitofwork, IUserService userService, IHttpContextAccessor httpContextAccessor) : base(unitofwork)
         {
-            _userService = userservice;
+            _userService = userService;
+            _httpContextAccessor = httpContextAccessor;
         }
 
         // GET
@@ -31,7 +34,11 @@ namespace MyCuscuzeria.API.Controllers
         {
             try
             {
+                string userClaim = _httpContextAccessor.HttpContext.User.FindFirst("User").Value;
+                AddUserResponse userResponse = JsonConvert.DeserializeObject<AddUserResponse>(userClaim);
+
                 var response = _userService.GetAllUsers();
+
                 return await ResponseAsync(response, _userService);
             }
             catch (Exception ex)
@@ -47,6 +54,9 @@ namespace MyCuscuzeria.API.Controllers
         {
             try
             {
+                string userClaim = _httpContextAccessor.HttpContext.User.FindFirst("User").Value;
+                AddUserResponse userResponse = JsonConvert.DeserializeObject<AddUserResponse>(userClaim);
+
                 var response = _userService.AddUser(request);
                 return await ResponseAsync(response, _userService);
             }

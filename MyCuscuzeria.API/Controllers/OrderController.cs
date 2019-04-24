@@ -1,8 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using MyCuscuzeria.API.Controllers.Base;
 using MyCuscuzeria.Domain.Arguments.Order;
+using MyCuscuzeria.Domain.Arguments.User;
 using MyCuscuzeria.Domain.Services;
 using MyCuscuzeria.Infrastructure.Transactions;
+using Newtonsoft.Json;
 using System;
 using System.Threading.Tasks;
 
@@ -11,12 +14,13 @@ namespace MyCuscuzeria.API.Controllers
     public class OrderController : BaseController
     {
         private readonly IOrderService _orderService;
+        private readonly IHttpContextAccessor _httpContextAccessor;
 
-        public OrderController(IUnitOfWork unitofwork, IOrderService orderService) : base(unitofwork)
+        public OrderController(IUnitOfWork unitofwork, IOrderService orderService, IHttpContextAccessor httpContextAccessor) : base(unitofwork)
         {
             _orderService = orderService;
+            _httpContextAccessor = httpContextAccessor;
         }
-
 
         // GET
         [HttpGet]
@@ -25,6 +29,9 @@ namespace MyCuscuzeria.API.Controllers
         {
             try
             {
+                string userClaim = _httpContextAccessor.HttpContext.User.FindFirst("User").Value;
+                AddUserResponse userResponse = JsonConvert.DeserializeObject<AddUserResponse>(userClaim);
+
                 var response = _orderService.GetAllOrders();
                 return await ResponseAsync(response, _orderService);
             }
@@ -41,8 +48,8 @@ namespace MyCuscuzeria.API.Controllers
         {
             try
             {
-                //string typeClaim = _httpContextAccessor.HttpContext.Type.FindFirst("Type").Value;
-                //AddTypeResponse typeResponse = JsonConvert.DeserializeObject<AddTypeResponse>(); 
+                string userClaim = _httpContextAccessor.HttpContext.User.FindFirst("User").Value;
+                AddUserResponse userResponse = JsonConvert.DeserializeObject<AddUserResponse>(userClaim);
 
                 var response = _orderService.AddOrder(request);
                 return await ResponseAsync(response, _orderService);

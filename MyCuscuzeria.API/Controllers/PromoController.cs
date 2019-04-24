@@ -1,8 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using MyCuscuzeria.API.Controllers.Base;
 using MyCuscuzeria.Domain.Arguments.Promo;
+using MyCuscuzeria.Domain.Arguments.User;
 using MyCuscuzeria.Domain.Services;
 using MyCuscuzeria.Infrastructure.Transactions;
+using Newtonsoft.Json;
 using System;
 using System.Threading.Tasks;
 
@@ -11,10 +14,12 @@ namespace MyCuscuzeria.API.Controllers
     public class PromoController : BaseController
     {
         private readonly IPromoService _promoService;
+        private readonly IHttpContextAccessor _httpContextAccessor;
 
-        public PromoController(IUnitOfWork unitofwork, IPromoService promoService) : base(unitofwork)
+        public PromoController(IUnitOfWork unitofwork, IPromoService promoService, IHttpContextAccessor httpContextAccessor) : base(unitofwork)
         {
             _promoService = promoService;
+            _httpContextAccessor = httpContextAccessor;
         }
 
         // GET
@@ -24,6 +29,9 @@ namespace MyCuscuzeria.API.Controllers
         {
             try
             {
+                string userClaim = _httpContextAccessor.HttpContext.User.FindFirst("User").Value;
+                AddUserResponse userResponse = JsonConvert.DeserializeObject<AddUserResponse>(userClaim);
+
                 var response = _promoService.GetAllPromos();
                 return await ResponseAsync(response, _promoService);
             }
@@ -40,8 +48,8 @@ namespace MyCuscuzeria.API.Controllers
         {
             try
             {
-                //string typeClaim = _httpContextAccessor.HttpContext.Type.FindFirst("Type").Value;
-                //AddTypeResponse typeResponse = JsonConvert.DeserializeObject<AddTypeResponse>(); 
+                string userClaim = _httpContextAccessor.HttpContext.User.FindFirst("User").Value;
+                AddUserResponse userResponse = JsonConvert.DeserializeObject<AddUserResponse>(userClaim);
 
                 var response = _promoService.AddPromo(request, Int32.MaxValue);
                 return await ResponseAsync(response, _promoService);

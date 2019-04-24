@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using MyCuscuzeria.API.Controllers.Base;
 using MyCuscuzeria.Domain.Arguments.Accompaniment;
 using MyCuscuzeria.Domain.Services;
@@ -11,14 +13,17 @@ namespace MyCuscuzeria.API.Controllers
     public class AccompanimentController : BaseController
     {
         private readonly IAccompanimentService _accompanimentService;
+        private readonly IHttpContextAccessor _httpContextAccessor;
 
-        public AccompanimentController(IUnitOfWork unitofwork, IAccompanimentService accompanimentService) : base(unitofwork)
+        public AccompanimentController(IUnitOfWork unitofwork, IAccompanimentService accompanimentService, IHttpContextAccessor httpContextAccessor) : base(unitofwork)
         {
             _accompanimentService = accompanimentService;
+            _httpContextAccessor = httpContextAccessor;
         }
 
         // GET
         [HttpGet]
+        [AllowAnonymous]
         [Route("api/Accompaniments/List")]
         public async Task<IActionResult> List()
         {
