@@ -31,7 +31,7 @@ namespace MyCuscuzeria.API.Controllers.Base
                     return Ok(result);
                     //return Request.CreateResponse(HttpStatusCode.OK, result);
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                     //Error
                     return BadRequest($"Houve um problema interno com o Servidor.");
