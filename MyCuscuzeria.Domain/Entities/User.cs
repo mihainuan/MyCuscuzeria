@@ -40,6 +40,11 @@ namespace MyCuscuzeria.Domain.Entities
             Password = Password.ConvertToMD5();
         }
 
+        protected User()
+        {
+
+        }
+
         //PK
         public int UserId { get; private set; }
 

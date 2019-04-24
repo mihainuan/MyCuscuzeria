@@ -54,12 +54,12 @@ namespace MyCuscuzeria.API.Controllers
 
         //DELETE
         [HttpDelete]
-        [Route("api/Accompaniment/Delete/{id:AccompanimentId}")]
-        public async Task<IActionResult> Delete(int AccompanimentId)
+        [Route("api/Accompaniment/Delete/{id:int}")]
+        public async Task<IActionResult> Delete(int accompanimentId)
         {
             try
             {
-                var response = _accompanimentService.RemoveAccompaniment(AccompanimentId);
+                var response = _accompanimentService.RemoveAccompaniment(accompanimentId);
                 return await ResponseAsync(response, _accompanimentService);
             }
             catch (Exception ex)

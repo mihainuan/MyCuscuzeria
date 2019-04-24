@@ -28,5 +28,10 @@ namespace MyCuscuzeria.Domain.Entities
 
             AddNotifications(cuscuz);
         }
+
+        protected Type()
+        {
+
+        }
     }
 }

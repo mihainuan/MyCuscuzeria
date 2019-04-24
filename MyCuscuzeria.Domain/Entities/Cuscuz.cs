@@ -39,5 +39,10 @@ namespace MyCuscuzeria.Domain.Entities
 
             AddNotifications(order);
         }
+
+        protected Cuscuz()
+        {
+
+        }
     }
 }

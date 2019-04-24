@@ -56,7 +56,7 @@ namespace MyCuscuzeria.API.Controllers
 
         //DELETE
         [HttpDelete]
-        [Route("api/Cuscuz/Delete/{id:CuscuzId}")]
+        [Route("api/Cuscuz/Delete/{id:int}")]
         public async Task<IActionResult> Delete(int cuscuzId)
         {
             try

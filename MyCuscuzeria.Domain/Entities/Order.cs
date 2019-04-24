@@ -34,7 +34,7 @@ namespace MyCuscuzeria.Domain.Entities
         public virtual ICollection<Drink> Drinks { get; private set; }
         public virtual ICollection<Promo> Promo { get; private set; }
 
-        public Order()
+        protected Order()
         {
             Beverages = new List<Beverage>();
             Cuscuzes = new List<Cuscuz>();
@@ -63,5 +63,6 @@ namespace MyCuscuzeria.Domain.Entities
             //        MSG.X0_OBRIGATORIO_E_DEVE_CONTER_ENTRE_X1_E_X2_CARACTERES);
             //AddNotifications(order);
         }
+
     }
 }

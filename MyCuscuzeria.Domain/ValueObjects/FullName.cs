@@ -18,5 +18,10 @@ namespace MyCuscuzeria.Domain.ValueObjects
                 .IfNullOrInvalidLength(x => x.FirstName, 1, 50, MSG.X0_OBRIGATORIO_E_DEVE_CONTER_ENTRE_X1_E_X2_CARACTERES.ToFormat("First Name", 3, 50))
                 .IfNullOrInvalidLength(x => x.LastName, 1, 50, MSG.X0_OBRIGATORIO_E_DEVE_CONTER_ENTRE_X1_E_X2_CARACTERES.ToFormat("Last Name", 3, 50));
         }
+
+        protected FullName()
+        {
+
+        }
     }
 }

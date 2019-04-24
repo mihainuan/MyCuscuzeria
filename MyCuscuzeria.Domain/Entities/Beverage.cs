@@ -25,5 +25,10 @@ namespace MyCuscuzeria.Domain.Entities
 
             AddNotifications(order);
         }
+
+        protected Beverage()
+        {
+
+        }
     }
 }
