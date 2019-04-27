@@ -1,14 +1,14 @@
 <ion-header>
   <ion-toolbar color="warning">
     <ion-title color="dark">
-      myCuscuzeriaApp
+      myCuscuzeriaApp v1.0
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
 
-<ion-searchbar placeholder="Search Cuscuz"></ion-searchbar>
+<ion-searchbar placeholder="Search Cuscuz" #cuscuz (keyup.enter)="searchCuscuz(cuscuz.value)"></ion-searchbar>
 
 <ion-card>
 <ion-card-header>
