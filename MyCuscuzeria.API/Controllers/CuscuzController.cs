@@ -28,7 +28,27 @@ namespace MyCuscuzeria.API.Controllers
         // GET
         [HttpGet]
         [AllowAnonymous]
-        [Route("api/Cuscuzs/List")]
+        [Route("api/Cuscuzes/Find/{cuscuzName}")]
+        public async Task<IActionResult> Find(string cuscuzName)
+        {
+            try
+            {
+                string userClaim = _httpContextAccessor.HttpContext.User.FindFirst("User").Value;
+                AddUserResponse userResponse = JsonConvert.DeserializeObject<AddUserResponse>(userClaim);
+
+                var response = _cuscuzService.FindCuscuz(cuscuzName);
+                return await ResponseAsync(response, _cuscuzService);
+            }
+            catch (Exception ex)
+            {
+                return await ResponseExceptionAsync(ex);
+            }
+        }
+
+        // GET
+        [HttpGet]
+        [AllowAnonymous]
+        [Route("api/Cuscuzes/List")]
         public async Task<IActionResult> List()
         {
             try

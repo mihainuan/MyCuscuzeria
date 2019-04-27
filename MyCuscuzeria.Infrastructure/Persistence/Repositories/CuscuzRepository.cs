@@ -49,5 +49,10 @@ namespace MyCuscuzeria.Infrastructure.Persistence.Repositories
             }
             return true;
         }
+
+        public Cuscuz FindCuscuz(string cuscuzName)
+        {
+            return _cuscuzeriaContext.Cuscuz.FirstOrDefault(x => x.CuscuzName == cuscuzName);
+        }
     }
 }

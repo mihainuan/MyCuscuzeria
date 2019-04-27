@@ -2,8 +2,10 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 using MyCuscuzeria.API.Security;
 using MyCuscuzeria.Domain.Intefaces.Repositories;
 using MyCuscuzeria.Domain.Services;
@@ -26,6 +28,7 @@ namespace MyCuscuzeria.API
             services.AddScoped<MyCuscuzeriaContext, MyCuscuzeriaContext>();
             services.AddTransient<IUnitOfWork, UnitOfWork>();
             //services.AddTransient<INotifiable, Notifiable>();
+            services.TryAddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
             //Services (IoC)
             services.AddTransient<IAccompanimentService, AccompanimentService>();

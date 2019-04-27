@@ -16,6 +16,13 @@ namespace MyCuscuzeria.Domain.Services
         Cuscuz GetOneCuscuz(int cuscuzId);
 
         /// <summary>
+        /// Find ONE specific Cuscuz by Name
+        /// </summary>
+        /// <param name="Cuscuzid"></param>
+        /// <returns></returns>
+        Cuscuz FindCuscuz(string cuscuzName);
+
+        /// <summary>
         /// List ALL Cuscuzes
         /// </summary>
         /// <returns></returns>

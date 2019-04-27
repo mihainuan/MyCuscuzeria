@@ -28,6 +28,13 @@ namespace MyCuscuzeria.Domain.Services
             throw new System.NotImplementedException();
         }
 
+
+        public Cuscuz FindCuscuz(string cuscuzName)
+        {
+            Cuscuz response = _cuscuzRepository.FindCuscuz(cuscuzName);
+            return response;
+        }
+
         public IEnumerable<CuscuzResponse> GetAllCuscuzes()
         {
             IEnumerable<Cuscuz> cuscuzCollection = _cuscuzRepository.GetAllCuscuz();
@@ -74,7 +81,10 @@ namespace MyCuscuzeria.Domain.Services
                 return null;
             }
 
-            if (this.IsInvalid()) return null;
+            if (this.IsInvalid())
+            {
+                return null;
+            }
 
             _cuscuzRepository.DeleteCuscuz(cuscuz);
 

@@ -7,6 +7,8 @@ namespace MyCuscuzeria.Domain.Intefaces.Repositories
     {
         Cuscuz GetOneCuscuz(int cuscuzId);
 
+        Cuscuz FindCuscuz(string cuscuzName);
+
         IEnumerable<Cuscuz> GetAllCuscuz();
 
         Cuscuz AddCuscuz(Cuscuz cuscuz);

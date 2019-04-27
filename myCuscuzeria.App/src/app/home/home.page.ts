@@ -1,5 +1,7 @@
+import { CuscuzService } from 'src/providers/cuscuz.service';
+import { UtilService } from 'src/providers/util.service';
 import { Component } from '@angular/core';
-import { NavController, LoadingController } from '@ionic/angular';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -8,13 +10,14 @@ import { NavController, LoadingController } from '@ionic/angular';
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController, private loadingController : LoadingController){
+  cuscuzes: any[] = [];
+  constructor(public navCtrl: NavController, private utilService: UtilService, private cuscuzService: CuscuzService) {
   }
 
-  searchCuscuz(cuscuz : string){
+  searchCuscuz(cuscuz: string) {
     console.log(cuscuz);
 
-    if(cuscuz == null || cuscuz.trim() == ''){
+    if (cuscuz == null || cuscuz.trim() == '') {
       return;
     }
 
@@ -23,15 +26,28 @@ export class HomePage {
   }
 
   //Carrega cuscuzes
-  async loadCuscuz(cuscuz : string){
-    const loading = await this.loadingController.create({
-      spinner: "lines-small",
-      duration: 5000,
-      message: 'Please wait...',
-      translucent: true,
-      cssClass: 'cuscuz-class cuscuz-loading'
-    });
-    return await loading.present();
+  async loadCuscuz(cuscuz: string) {
+
+    //Loading Spinner
+    let loading = await this.utilService.showLoading(cuscuz);
+    loading.present();
+    //loading.dismiss();
+
+    //Chama a API
+    this.cuscuzService.listarPorCuscuz(cuscuz).then(
+      (response) => {
+        //Popula o array
+        this.cuscuzes = response.json();
+
+        console.log(this.cuscuzes);
+        loading.dismiss();
+      }
+    ).catch(
+      (response) => {
+        this.utilService.showMessageError(response);
+      }
+    );
+
   }
 
 }

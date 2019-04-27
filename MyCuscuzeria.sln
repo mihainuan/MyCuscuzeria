@@ -9,7 +9,28 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyCuscuzeria.Infrastructure
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyCuscuzeria.Shared", "MyCuscuzeria.Shared\MyCuscuzeria.Shared.csproj", "{3763F0AF-9945-4B0A-B515-E174B2697B1A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyCuscuzeria.API", "MyCuscuzeria.API\MyCuscuzeria.API.csproj", "{C1723912-793B-4E2F-ABA1-EFFC0BEB5AB5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyCuscuzeria.API", "MyCuscuzeria.API\MyCuscuzeria.API.csproj", "{C1723912-793B-4E2F-ABA1-EFFC0BEB5AB5}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "myCuscuzeria.App", "myCuscuzeria.App\", "{7A735865-A8DA-4942-B0BB-911EFF33AE96}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_54394"
+		Debug.AspNetCompiler.PhysicalPath = "myCuscuzeria.App\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_54394\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_54394"
+		Release.AspNetCompiler.PhysicalPath = "myCuscuzeria.App\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_54394\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "54394"
+		SlnRelativePath = "myCuscuzeria.App\"
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +54,10 @@ Global
 		{C1723912-793B-4E2F-ABA1-EFFC0BEB5AB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C1723912-793B-4E2F-ABA1-EFFC0BEB5AB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C1723912-793B-4E2F-ABA1-EFFC0BEB5AB5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7A735865-A8DA-4942-B0BB-911EFF33AE96}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A735865-A8DA-4942-B0BB-911EFF33AE96}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A735865-A8DA-4942-B0BB-911EFF33AE96}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A735865-A8DA-4942-B0BB-911EFF33AE96}.Release|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
